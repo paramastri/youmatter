@@ -16,12 +16,18 @@ $container['router'] = function() use ($defaultModule, $modules) {
 	]);
 
 	$router->addGet('/', [
-	    'namespace' => 'Its\Example\Dashboard\Presentation\Web\Controller',
+	    'namespace' => $modules[$defaultModule]['webControllerNamespace'],
 		'module' => 'dashboard',
-	    'controller' => 'Index',
+	    'controller' => 'index',
 	    'action' => 'home'
 	]);
 
+	// $router->addGet('/artikel', [
+	//     'namespace' => 'Its\Example\Dashboard\Presentation\Web\Controller',
+	// 	'module' => 'dashboard',
+	//     'controller' => 'Index',
+	//     'action' => 'home'
+	// ]);
 
 	
 	/**

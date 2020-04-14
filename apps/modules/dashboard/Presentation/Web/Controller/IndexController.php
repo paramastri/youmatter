@@ -15,4 +15,14 @@ class IndexController extends Controller
     {
         $this->view->pick('home');
     }
+
+    public function artikelAction()
+    {
+    	$this->view->pick('artikel');
+    }
+
+    public function adminAction()
+    {
+        echo "yeay";
+    }
 }
