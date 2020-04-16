@@ -58,7 +58,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="index.html"><img style="width: 30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                <a href="/"><img style="width: 30%;" src="../assets/img/logo/logogo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -66,18 +66,15 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li class="active"><a href="index.html"> Home</a></li>
-                                        <li><a href="feature.html">Feature</a></li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="#">Pages</a>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="artikel">Artikel</a></li>
+                                        <li class="active"><a href="#">Masuk</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
+                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="pasien">Pasien</a></li>
+                                                <li><a href="psikolog">Psikolog</a></li>
+                                                <li><a href="admin">Admin</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -193,7 +190,7 @@
 						  <div class="single-footer-caption mb-30">
 							   <!-- logo -->
 							  <div class="footer-logo">
-                                 <a href="index.html"><img style="width:30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                 <a href="/"><img style="width:30%;" src="../assets/img/logo/logogo.png" alt=""></a>
                              </div>
 							  <div class="footer-tittle">
 								  <div class="footer-pera">

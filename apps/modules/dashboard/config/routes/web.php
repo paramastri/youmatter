@@ -2,25 +2,19 @@
 
 $namespace = 'Its\Example\Dashboard\Presentation\Web\Controller';
 
-$router->addGet('/artikel', [
+
+$router->addGet('/psikolog', [
 	'namespace' => $namespace,
 	'module' => 'dashboard',
-	'controller' => 'index',
-	'action' => 'artikel'
+	'controller' => 'user',
+	'action' => 'psikolog'
 ]);
 
-$router->addGet('/dashboard/admin', [
+$router->addGet('/pasien', [
 	'namespace' => $namespace,
 	'module' => 'dashboard',
-	'controller' => 'index',
-	'action' => 'admin'
-]);
-
-$router->addGet('/test', [
-	'namespace' => 'Its\Example\Dashboard\Presentation\Web\Controller',
-	'module' => 'dashboard',
-	'controller' => 'Index',
-	'action' => 'test'
+	'controller' => 'user',
+	'action' => 'pasien'
 ]);
 
 //route -route lain
