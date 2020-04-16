@@ -47,7 +47,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="index.html"><img style="width: 30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                <a href="/"><img style="width: 30%;" src="../assets/img/logo/logogo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -55,18 +55,15 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li class="active"><a href="index.html"> Home</a></li>
-                                        <li><a href="feature.html">Feature</a></li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="#">Pages</a>
+                                        <li class="active"><a href="/">Beranda</a></li>
+                                        <li><a href="artikel">Artikel</a></li>
+                                        <li><a href="#">Masuk</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
+                                                <li><a href="pasien">Pasien</a></li>
+                                                <li><a href="psikolog">Psikolog</a></li>
+                                                <li><a href="admin">Admin</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -92,13 +89,13 @@
                         <div class="row d-flex align-items-center">
                             <div class="col-lg-6 col-md-9 ">
                                 <div class="hero__caption">
-                                    <span data-animation="fadeInUp" data-delay=".4s">App Landing Page</span>
+                                  
                                     <h1 data-animation="fadeInUp" data-delay=".6s">You Matter</h1>
                                     <p data-animation="fadeInUp" data-delay=".8s">Tanya ke psikolog dan lihat ulasan jawabannya pada artikel!</p>
                                     <!-- Slider btn -->
                                    <div class="slider-btns">
                                         <!-- Hero-btn -->
-                                        <a data-animation="fadeInLeft" data-delay="1.0s" href="industries.html" class="btn radius-btn">Tanya Sekarang</a>
+                                        <a data-animation="fadeInLeft" data-delay="1.0s" href="pasien" class="btn radius-btn">Tanya Sekarang</a>
                                         <!-- Video Btn -->
                                         <!-- <a data-animation="fadeInRight" data-delay="1.0s" class="popup-video video-btn ani-btn" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><i class="fas fa-play"></i></a> -->
                                    </div>
@@ -178,7 +175,7 @@
         </div>           
         <!-- Our Customer End -->
         <div style="margin-top: 3%;" class="say-btn text-center">
-             <a href="#" class="btn radius-btn">Daftar Sebagai Psikolog</a>
+             <a href="psikolog" class="btn radius-btn">Daftar Sebagai Psikolog</a>
         </div>
       </div>
 
@@ -194,7 +191,7 @@
                          <div class="single-footer-caption mb-30">
                               <!-- logo -->
                              <div class="footer-logo">
-                                 <a href="index.html"><img style="width:30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                 <a href="/"><img style="width:30%;" src="../assets/img/logo/logogo.png" alt=""></a>
                              </div>
                              <div class="footer-tittle">
                                  <div class="footer-pera">

@@ -58,18 +58,15 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li class="active"><a href="index.html"> Home</a></li>
-                                        <li><a href="feature.html">Feature</a></li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="#">Pages</a>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li class="active"><a href="artikel">Artikel</a></li>
+                                        <li><a href="#">Masuk</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
+                                                <li><a href="pasien">Pasien</a></li>
+                                                <li><a href="psikolog">Psikolog</a></li>
+                                                <li><a href="admin">Admin</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -87,12 +84,12 @@
 
     <!-- Slider Area Start-->
 <!--     <div class="services-area"> -->
-        <div style="margin-top: 10%;" class="container">
+        <div style="margin-top: 15%;" class="container">
             <!-- Section-tittle -->
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex">
                 <div class="col-lg-8">
-                    <div class="section-tittle text-center mb-80">
-                        <h2>Artikel</h2>
+                    <div class="section-tittle mb-80">
+                        <h2 >Artikel</h2>
                     </div>
                 </div>
             </div>
@@ -106,7 +103,7 @@
             <div class="row">
               <!--   <div class="col-lg-8 mb-5 mb-lg-0"> -->
                     <div class="blog_left_sidebar">
-                        <article class="blog_item">
+                        <article style="width: 50%;" class="blog_item">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="../assets/img/blog/single_blog_5.png" alt="">
                                 <a style="pointer-events: none;" class="blog_item_date">
