@@ -17,6 +17,13 @@ $router->addGet('/pasien', [
 	'action' => 'pasien'
 ]);
 
+$router->addGet('/admin', [
+	'namespace' => $namespace,
+	'module' => 'dashboard',
+	'controller' => 'user',
+	'action' => 'loginadmin'
+]);
+
 //route -route lain
 
 return $router;

@@ -15,4 +15,9 @@ class UserController extends Controller
     {
         $this->view->pick('daftarpasien');
     }
+
+    public function loginadminAction()
+    {
+        $this->view->pick('loginadmin');
+    }
 }

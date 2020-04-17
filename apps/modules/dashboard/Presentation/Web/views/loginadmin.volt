@@ -71,8 +71,8 @@
                                         <li class="active"><a href="#">Masuk</a>
                                             <ul class="submenu">
                                                 <li><a href="pasien">Pasien</a></li>
-                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="psikolog">Psikolog</a></li>
-                                                <li><a href="admin">Admin</a></li>
+                                                <li><a href="psikolog">Psikolog</a></li>
+                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="admin">Admin</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -92,7 +92,7 @@
 	<!-- Slider Area Start-->
 
 <div>
-	<!-- <div class="services-area">
+<!-- 	<div class="services-area sky-blue">
 		
 	</div> -->
 	<!-- Slider Area End-->
@@ -113,83 +113,13 @@
 
 	
 				<div class="row">
-					<!-- DAFTAR -->
-					<div class="col-lg-6 col-md-6">
-						<h3 class="mb-30">Daftar Psikolog</h3>
-						<form action="#">
-							<div class="mt-10">
-								<input type="text" name="first_name" placeholder="First Name"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="text" name="last_name" placeholder="Last Name"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="text" name="last_name" placeholder="Last Name"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="email" name="EMAIL" placeholder="Email address"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
-									class="single-input">
-							</div>
-							<div class="input-group-icon mt-10">
-								<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-								<input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Address'" required class="single-input">
-							</div>
-							<div class="input-group-icon mt-10">
-								<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-								<div class="form-select" id="default-select"">
-											<select>
-												<option value=" 1">City</option>
-									<option value="1">Dhaka</option>
-									<option value="1">Dilli</option>
-									<option value="1">Newyork</option>
-									<option value="1">Islamabad</option>
-									</select>
-								</div>
-							</div>
-							<div class="input-group-icon mt-10">
-								<div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
-								<div class="form-select" id="default-select"">
-											<select>
-												<option value=" 1">Country</option>
-									<option value="1">Bangladesh</option>
-									<option value="1">India</option>
-									<option value="1">England</option>
-									<option value="1">Srilanka</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="mt-10">
-								<textarea class="single-textarea" placeholder="Message" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Message'" required></textarea>
-							</div>
-							<!-- For Gradient Border Use -->
-							<!-- <div class="mt-10">
-										<div class="primary-input">
-											<input id="primary-input" type="text" name="first_name" placeholder="Primary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Primary color'">
-											<label for="primary-input"></label>
-										</div>
-									</div> -->
-							
-						</form>
-						<div style="margin-top: 40px;" class="button-group-area">
-							<a href="#" class="genric-btn success">Success</a>
-						</div>
-					</div>
+	
 
 					<!-- LOGIN -->
 
-					<div style="margin-left:10%;" class="col-lg-3 col-md-4 mt-sm-30">
+					<div style="margin-left:10%;" class="col-lg-4 col-md-4 mt-sm-30">
 						
-						<h3 class="mb-30">Masuk</h3>
+						<h3 class="mb-30">Masuk Sebagai Admin</h3>
 						<form action="#">
 							<div class="mt-10">
 								<input type="text" name="username" placeholder="Username"
@@ -213,7 +143,7 @@
 	</div>
 	<!-- End Align Area -->
 	<div style="margin-top: 200px;">
-	<footer>
+	<footer style="background-color: #f4feff;">
 		<!-- Footer Start-->
 	   <div class="footer-main">
 		 <div class="footer-area footer-padding2">
