@@ -21,11 +21,6 @@ class Bootstrap extends Application
 
 		if ($config->mode == 'DEVELOPMENT') {
 			$debug = new Debug();
-
-			$debug->setBlacklist([
-				'server'  => ['DB_PASSWORD'],
-			]);
-
 			$debug->listen();
 		}
 		
@@ -33,7 +28,7 @@ class Bootstrap extends Application
 		 * Load modules
 		 */
 		$this->registerModules($this->modules);
-		
+
 		$response = $this->handle(
             $_SERVER["REQUEST_URI"]
         );
@@ -60,7 +55,7 @@ class Bootstrap extends Application
 
 		$defaultModule = getenv('DEFAULT_MODULE');
 
-		$container = new FactoryDefault();
+		$di = new FactoryDefault();
 		$config = require APP_PATH . '/config/config.php';
 		$modules = $this->modules;
 
@@ -68,6 +63,6 @@ class Bootstrap extends Application
 		include_once APP_PATH . '/config/services.php';
 		include_once APP_PATH . '/config/routing.php';
 		
-		$this->setDI($container);
+		$this->setDI($di);
 	}
 }

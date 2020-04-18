@@ -1,87 +1,67 @@
 <?php
 
+use Phalcon\Logger\Adapter\File as Logger;
 use Phalcon\Session\Adapter\Files as Session;
+use Phalcon\Session\Manager as Manager;
+use Phalcon\Http\Response\Cookies;
 use Phalcon\Security;
 use Phalcon\Mvc\Dispatcher;
-use Phalcon\Events\Event;
-use Phalcon\Events\Manager;
 use Phalcon\Mvc\View;
-use Phalcon\Mvc\ViewBaseInterface;
-use Phalcon\Mvc\View\Engine\Volt;
+use Phalcon\Url;
+use Phalcon\Escaper;
 use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Session\Adapter\Files;
+use Phalcon\Events\Event;
+use Phalcon\Events\Manager as EventsManager;
+use MyApp\Listeners\Listener as Listener;
 
-$container['config'] = function() use ($config) {
+$di['config'] = function() use ($config) {
 	return $config;
 };
 
-$container->setShared('session', function() {
-    $session = new Session();
+$di->setShared('session', function() {
+    $session = new \Phalcon\Session\Adapter\Files();
 	$session->start();
 
 	return $session;
 });
 
-$container['dispatcher'] = function() {
 
-    $eventsManager = new Manager();
+$di['dispatcher'] = function() use ($di, $defaultModule) {
 
-    $eventsManager->attach(
-        'dispatch:beforeException',
-        function (Event $event, $dispatcher, Exception $exception) {
-            // 404
-            if ($exception instanceof DispatchException) {
-                $dispatcher->forward(
-                    [
-                        'controller' => 'index',
-                        'action'     => 'fourOhFour',
-                    ]
-                );
-
-                return false;
-            }
-        }
-    );
-
+    $eventsManager = $di->getShared('eventsManager');
     $dispatcher = new Dispatcher();
     $dispatcher->setEventsManager($eventsManager);
 
     return $dispatcher;
 };
 
-$container['url'] = function() use ($config) {
-	$url = new \Phalcon\Url();
+$di['url'] = function() use ($config, $di) {
+	$url = new Url();
 
     $url->setBaseUri($config->url['baseUrl']);
 
 	return $url;
 };
 
-$container['voltService'] = function (ViewBaseInterface $view) use ($container, $config) {
-    
-    $volt = new Volt($view, $container);
-
+$di['voltService'] = function($view) use ($config) {
+    $volt = new \Phalcon\Mvc\View\Engine\Volt($view, $this);
     if (!is_dir($config->application->cacheDir)) {
         mkdir($config->application->cacheDir);
     }
 
     $compileAlways = $config->mode == 'DEVELOPMENT' ? true : false;
 
-    $volt->setOptions(
-        [
-            'always'    => $compileAlways,
-            'extension' => '.php',
-            'separator' => '_',
-            'stat'      => true,
-            'path'      => $config->application->cacheDir,
-            'prefix'    => '-prefix-',
-        ]
-    );
-    
+    $volt->setOptions(array(
+        "path" => $config->application->cacheDir,
+        "extension" => ".compiled",
+        "always" => $compileAlways
+    ));
     return $volt;
 };
 
-$container['view'] = function () {
+$di['view'] = function () {
     $view = new View();
     $view->setViewsDir(APP_PATH . '/common/views/');
 
@@ -94,7 +74,7 @@ $container['view'] = function () {
     return $view;
 };
 
-$container->set(
+$di->set(
     'security',
     function () {
         $security = new Security();
@@ -105,7 +85,7 @@ $container->set(
     true
 );
 
-$container->set(
+$di->set(
     'flash',
     function () {
         $flash = new FlashDirect(
@@ -121,16 +101,16 @@ $container->set(
     }
 );
 
-$container->set(
+$di->set(
     'flashSession',
     function () {
         $flash = new FlashSession(
-            [
-                'error'   => 'alert alert-danger',
-                'success' => 'alert alert-success',
-                'notice'  => 'alert alert-info',
-                'warning' => 'alert alert-warning',
-            ]
+            // [
+            //     'error'   => 'alert alert-danger',
+            //     'success' => 'alert alert-success',
+            //     'notice'  => 'alert alert-info',
+            //     'warning' => 'alert alert-warning',
+            // ]
         );
 
         $flash->setAutoescape(false);
@@ -139,7 +119,26 @@ $container->set(
     }
 );
 
-$container['db'] = function () use ($config) {
+
+// $di->setShared('db', function(){
+//     $config = $this->getConfig();
+
+//     $class = '\Phalcon\Db\Adapter\Pdo\\' . $config->database->adapter;
+//     $params = [
+//         'host' => $config->database->host,
+//         'username' => $config->database->username,
+//         'password' => $config->database->password,
+//         'dbname' => $config->database->dbname,
+//         'port' => $config->database->port,
+//         'charset' => $config->database->charset
+//     ];
+//     if ($config->database->adapter == 'Postgresql' || $config->database->adapter == 'Sqlite'){
+//         unset($params['charset']);
+//     }
+//     return new $class($params);
+// });
+
+$di['db'] = function () use ($config) {
 
     $dbAdapter = $config->database->adapter;
 
@@ -147,6 +146,76 @@ $container['db'] = function () use ($config) {
         "host" => $config->database->host,
         "username" => $config->database->username,
         "password" => $config->database->password,
-        "dbname" => $config->database->dbname
+        "dbname" => $config->database->dbname,
+        "port" => $config->database->port,
+        "charset" => $config->database->charset
     ]);
 };
+
+// $di['db'] = function () use ($config) {
+//     $eventsManager = new EventsManager();
+//     // Cara 1
+//     $eventsManager->attach(
+//         'db:beforeQuery',
+//         function (Event $event, $connection) {
+//             echo 'beforeQuery : ' . $connection->getSQLStatement() . '<br>';
+//         }
+//     );
+//     $eventsManager->attach(
+//         'db:afterQuery',
+//         function (Event $event, $connection) {
+//             echo 'afterQuery : ' . $connection->getSQLStatement() . '<br>';
+//         }
+//     );
+//     $dbAdapter = new \Phalcon\Db\Adapter\Pdo\Mysql([
+//         "host" => $config->database->host,
+//         "username" => $config->database->username,
+//         "password" => $config->database->password,
+//         "dbname" => $config->database->dbname
+//     ]);
+
+//     $dbAdapter->setEventsManager($eventsManager);
+//     return $dbAdapter;
+// };
+
+
+    // // Cara 2
+    // $eventsManager->attach(
+    //     'db',
+    //     new Listener()
+    // );
+
+// $eventsManager = new EventsManager();
+
+// $eventsManager->collectResponses(true);
+
+// $eventsManager->attach(
+//     'custom:pertama',
+//     function (Event $event, $component, $data) {
+//         return 'Dari Event Manager Custom ' . $data . ' <br>' ;
+//     }
+// );
+
+// $eventsManager->attach(
+//     'custom:pertama',
+//     function () {
+//         return 'Dari Event Manager Custom Tanpa Data' . '<br>';
+//     }
+// );
+
+// $eventsManager->fire('custom:pertama', $this, 'Dengan Data');
+
+// print_r($eventsManager->getResponses());
+
+
+
+// use Phalcon\Events\Exception;
+
+// try {
+
+//     $eventsManager = new EventsManager();
+
+//     $eventsManager->attach('custom:custom', true);
+// } catch (Exception $ex) {
+//     echo $ex->getMessage();
+// }

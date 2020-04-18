@@ -1,6 +1,6 @@
 <?php
 
-namespace Its\Example\Dashboard;
+namespace Phalcon\Init\Dashboard;
 
 use Phalcon\Di\DiInterface;
 use Phalcon\Loader;
@@ -13,27 +13,16 @@ class Module implements ModuleDefinitionInterface
         $loader = new Loader();
 
         $loader->registerNamespaces([
-
-            'Its\Example\Dashboard\Core\Domain\Event' => __DIR__ . '/Core/Domain/Event',
-            'Its\Example\Dashboard\Core\Domain\Model' => __DIR__ . '/Core/Domain/Model',
-            'Its\Example\Dashboard\Core\Domain\Repository' => __DIR__ . '/Core/Domain/Repository',
-            'Its\Example\Dashboard\Core\Domain\Service' => __DIR__ . '/Core/Domain/Service',
-
-            'Its\Example\Dashboard\Core\Application\Service' => __DIR__ . '/Core/Application/Service',
-            'Its\Example\Dashboard\Core\Application\EventSubscriber' => __DIR__ . '/Core/Application/EventSubscriber',
-
-            'Its\Example\Dashboard\Infrastructure\Persistence' => __DIR__ . '/Core/Infrastructure/Persistence',
-
-            'Its\Example\Dashboard\Presentation\Web\Controller' => __DIR__ . '/Presentation/Web/Controller',
-            'Its\Example\Dashboard\Presentation\Web\Validator' => __DIR__ . '/Presentation/Web/Validator',
-            'Its\Example\Dashboard\Presentation\Api\Controller' => __DIR__ . '/Presentation/Api/Controller',
-            
+            'Phalcon\Init\Dashboard\Controllers\Web' => __DIR__ . '/controllers/web',
+            'Phalcon\Init\Dashboard\Controllers\Api' => __DIR__ . '/controllers/api',
+            'Phalcon\Init\Dashboard\Models' => __DIR__ . '/models',
+            'Phalcon\Init\Dashboard\Middlewares' => __DIR__ . '/middleware',
         ]);
 
         $loader->register();
     }
 
-    public function registerServices(DiInterface $di = null)
+    public function registerServices(DiInterface $di)
     {
         $moduleConfig = require __DIR__ . '/config/config.php';
 

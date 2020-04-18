@@ -1,29 +1,51 @@
 <?php
 
-$namespace = 'Its\Example\Dashboard\Presentation\Web\Controller';
-
+$namespace =  'Phalcon\Init\Dashboard\Controllers\Web';
 
 $router->addGet('/psikolog', [
-	'namespace' => $namespace,
-	'module' => 'dashboard',
-	'controller' => 'user',
-	'action' => 'psikolog'
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'psikolog',
+    'action' => 'psikolog'
 ]);
 
 $router->addGet('/pasien', [
-	'namespace' => $namespace,
-	'module' => 'dashboard',
-	'controller' => 'user',
-	'action' => 'pasien'
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'pasien',
+    'action' => 'pasien'
 ]);
 
-$router->addGet('/admin', [
-	'namespace' => $namespace,
-	'module' => 'dashboard',
-	'controller' => 'user',
-	'action' => 'loginadmin'
+// ADMIN: login
+
+$router->addGet('/daftaradmin', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'daftaradmin'
 ]);
 
-//route -route lain
+$router->addPost('/daftaradmin', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'storeregister'
+]);
+
+$router->addPost('/loginadmin', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'storelogin'
+]);
+
+// ADMIN: halaman
+
+$router->addPost('/halamanadmin', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'halamanadmin'
+]);
 
 return $router;

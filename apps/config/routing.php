@@ -1,9 +1,10 @@
 <?php
 
-$container['router'] = function() use ($defaultModule, $modules) {
+$di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 
 	$router = new \Phalcon\Mvc\Router(false);
 	$router->clear();
+
 
 	/**
 	 * Default Routing
@@ -12,61 +13,28 @@ $container['router'] = function() use ($defaultModule, $modules) {
 	    'namespace' => $modules[$defaultModule]['webControllerNamespace'],
 		'module' => $defaultModule,
 	    'controller' => isset($modules[$defaultModule]['defaultController']) ? $modules[$defaultModule]['defaultController'] : 'index',
-	    'action' => isset($modules[$defaultModule]['defaultAction']) ? $modules[$defaultModule]['defaultAction'] : 'index'
+		'action' => isset($modules[$defaultModule]['defaultAction']) ? $modules[$defaultModule]['defaultAction'] : 'index'
 	]);
 
 	$router->addGet('/', [
-	    'namespace' => $modules[$defaultModule]['webControllerNamespace'],
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'index',
 	    'action' => 'home'
 	]);
 
-	// $router->addGet('/artikel', [
-	//     'namespace' => 'Its\Example\Dashboard\Presentation\Web\Controller',
-	// 	'module' => 'dashboard',
-	//     'controller' => 'Index',
-	//     'action' => 'home'
-	// ]);
-
 	
+
 	/**
 	 * Not Found Routing
 	 */
 	$router->notFound(
 		[
-			'namespace' => 'Its\Common\Controller',
+			'namespace' => 'Phalcon\Init\Common\Controllers',
 			'controller' => 'error',
 			'action'     => 'route404',
 		]
 	);
-
-	/**
-	 * Error Routing
-	 */
-	$router->addGet('/forbidden', [
-		'namespace' => "Its\Common\Controller",
-		'controller' => "error",
-		'action' => "route403"
-	]);
-	
-	$router->addGet('/error', [
-		'namespace' => "Its\Common\Controller",
-		'controller' => "error",
-		'action' => "routeErrorCommon"
-	]);
-	
-	$router->addGet('/expired', [
-		'namespace' => "Its\Common\Controller",
-		'controller' => "error",
-		'action' => "routeErrorState"
-	]);
-
-	$router->addGet('/maintenance', [
-		'namespace' => "Its\Common\Controller",
-		'controller' => "error",
-		'action' => "maintenance"
-	]);
 
 	/**
 	 * Module Routing
