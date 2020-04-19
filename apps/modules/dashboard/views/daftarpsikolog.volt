@@ -72,7 +72,7 @@
                                             <ul class="submenu">
                                                 <li><a href="pasien">Pasien</a></li>
                                                 <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="psikolog">Psikolog</a></li>
-                                                <li><a href="admin">Admin</a></li>
+                                                <li><a href="loginadmin">Admin</a></li>
                                             </ul>
                                         </li>
                                     </ul>

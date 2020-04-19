@@ -4,15 +4,10 @@ namespace Phalcon\Init\Dashboard\Models;
 
 use Phalcon\Mvc\Model;
 
-class Admin extends Model
+class Pasien extends Model
 {
-	// public function initialize()
- //    {
- //        $this->setSource('users');
- //    }
     public $id;
     public $username;
+    public $email;
     public $password;
-
-
 }

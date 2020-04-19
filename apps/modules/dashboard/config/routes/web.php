@@ -32,6 +32,13 @@ $router->addPost('/daftaradmin', [
     'action' => 'storeregister'
 ]);
 
+$router->addGet('/loginadmin', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'loginadmin'
+]);
+
 $router->addPost('/loginadmin', [
     'namespace' => $namespace,
     'module' => 'dashboard',
@@ -39,9 +46,16 @@ $router->addPost('/loginadmin', [
     'action' => 'storelogin'
 ]);
 
+$router->addGet('/logoutadmin', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'logout'
+]);
+
 // ADMIN: halaman
 
-$router->addPost('/halamanadmin', [
+$router->addGet('/halamanadmin', [
     'namespace' => $namespace,
     'module' => 'dashboard',
     'controller' => 'admin',

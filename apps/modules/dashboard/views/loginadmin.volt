@@ -72,7 +72,7 @@
                                             <ul class="submenu">
                                                 <li><a href="pasien">Pasien</a></li>
                                                 <li><a href="psikolog">Psikolog</a></li>
-                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="admin">Admin</a></li>
+                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="loginadmin">Admin</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -120,7 +120,7 @@
 					<div style="margin-left:10%;" class="col-lg-4 col-md-4 mt-sm-30">
 						
 						<h3 class="mb-30">Masuk Sebagai Admin</h3>
-						<form action="#">
+						<form action="loginadmin" method = "post">
 							<div class="mt-10">
 								<input type="text" name="username" placeholder="Username"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required
@@ -131,11 +131,9 @@
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
 									class="single-input">
 							</div>
-							
+							<button style="margin-top: 40px;" type="submit" class="genric-btn success">Masuk</button>
 						</form>
-						<div style="margin-top: 40px;" class="button-group-area">
-							<a href="#" class="genric-btn success">Masuk</a>
-						</div>
+					
 					</div>
 				</div>
 			</div>

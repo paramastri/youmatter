@@ -66,15 +66,16 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li><a href="/">Beranda</a></li>
-                                        <li><a href="artikel">Artikel</a></li>
                                         <li class="active"><a href="#">Masuk</a>
                                             <ul class="submenu">
                                                 <li><a href="pasien">Pasien</a></li>
                                                 <li><a href="psikolog">Psikolog</a></li>
-                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="admin">Admin</a></li>
+                                                {% if (session.get('admin')['username']) %}
+                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="#">Hai, {{ session.get('admin')['username'] }}!</a></li>
+                                                {% endif %}
                                             </ul>
                                         </li>
+                                        <li><a href="logoutadmin">Logout</a></li>
                                     </ul>
                                 </nav>
                             </div>
