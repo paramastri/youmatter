@@ -7,12 +7,17 @@ use Phalcon\Mvc\Dispatcher;
 use Phalcon\Init\Dashboard\Models\Pasien;
 use Phalcon\Http\Request;
 use Phalcon\Events\Manager as EventsManager;
+use Phalcon\Http\Response;
 
 class PasienController extends Controller
 {
 
     public function pasienAction()
     {
+        $_isPasien= $this->session->get('pasien');
+        if ($_isPasien) {
+            $this->response->redirect('halamanpasien');
+        }
         $this->view->pick('daftarpasien');
     }
 
@@ -20,6 +25,7 @@ class PasienController extends Controller
 
         $pasien = new Pasien();
         $pasien->username = $this->request->getPost('username');
+        $pasien->email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         $pasien->password = $this->security->hash($password);
         $user = Pasien::findFirst("username = '$pasien->username'");
@@ -33,14 +39,9 @@ class PasienController extends Controller
             $pasien->save();
             // printf (strlen($pasien->password));
             // echo "masuk";
-            return $this->response->redirect('loginpasien');
+            return $this->response->redirect('pasien');
         }
         
-    }
-
-    public function loginpasienAction()
-    {
-        $this->view->pick('pasien');
     }
 
     public function storeloginAction()
@@ -58,7 +59,7 @@ class PasienController extends Controller
                         ]
                     );
                     // echo "Masuk bos mantap";
-                    (new Response())->redirect('/')->send();
+                    (new Response())->redirect('halamanpasien')->send();
                 }
                 else{
                     echo "Gagal masuk sebagai pasien. Silakan cek kembali username dan password anda.";
@@ -76,5 +77,16 @@ class PasienController extends Controller
     {
         $this->session->destroy();
         $this->response->redirect("pasien");
+    }
+
+    public function halamanpasienAction()
+    {   
+        $id = $this->session->get('pasien');
+        if ($id == NULL) {
+            // echo "berhasil login";
+            // die();
+            (new Response())->redirect('pasien')->send();          
+        }
+        $this->view->pick('halamanpasien');
     }
 }

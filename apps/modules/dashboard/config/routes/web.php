@@ -9,14 +9,8 @@ $router->addGet('/psikolog', [
     'action' => 'psikolog'
 ]);
 
-$router->addGet('/pasien', [
-    'namespace' => $namespace,
-    'module' => 'dashboard',
-    'controller' => 'pasien',
-    'action' => 'pasien'
-]);
 
-// ADMIN: login
+// ADMIN
 
 $router->addGet('/daftaradmin', [
     'namespace' => $namespace,
@@ -53,13 +47,48 @@ $router->addGet('/logoutadmin', [
     'action' => 'logout'
 ]);
 
-// ADMIN: halaman
-
 $router->addGet('/halamanadmin', [
     'namespace' => $namespace,
     'module' => 'dashboard',
     'controller' => 'admin',
     'action' => 'halamanadmin'
+]);
+
+// PASIEN
+
+$router->addGet('/pasien', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'pasien',
+    'action' => 'pasien'
+]);
+
+$router->addPost('/daftarpasien', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'pasien',
+    'action' => 'storeregister'
+]);
+
+$router->addPost('/loginpasien', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'pasien',
+    'action' => 'storelogin'
+]);
+
+$router->addGet('/logoutpasien', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'pasien',
+    'action' => 'logout'
+]);
+
+$router->addGet('/halamanpasien', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'pasien',
+    'action' => 'halamanpasien'
 ]);
 
 return $router;

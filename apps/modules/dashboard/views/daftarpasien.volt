@@ -116,14 +116,14 @@
 					<!-- DAFTAR -->
 					<div class="col-lg-6 col-md-6">
 						<h3 class="mb-30">Daftar Pasien</h3>
-						<form action="#">
+						<form action="daftarpasien" method = "post">
 							<div class="mt-10">
-								<input type="text" name="first_name" placeholder="Name"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
+								<input type="text" name="username" placeholder="Username"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required
 									class="single-input">
 							</div>
 							<div class="mt-10">
-								<input type="email" name="EMAIL" placeholder="Email address"
+								<input type="email" name="email" placeholder="Email address"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
 									class="single-input">
 							</div>
@@ -133,11 +133,6 @@
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
 									class="single-input">
 							</div>
-
-							<div class="mt-10">
-								<textarea class="single-textarea" placeholder="Message" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Message'" required></textarea>
-							</div>
 							<!-- For Gradient Border Use -->
 							<!-- <div class="mt-10">
 										<div class="primary-input">
@@ -145,11 +140,9 @@
 											<label for="primary-input"></label>
 										</div>
 									</div> -->
-							
+							<button style="margin-top: 40px;" type="submit" class="genric-btn success">Daftar</button>
 						</form>
-						<div style="margin-top: 40px;" class="button-group-area">
-							<a href="#" class="genric-btn success">Success</a>
-						</div>
+						
 					</div>
 
 					<!-- LOGIN -->
@@ -157,7 +150,7 @@
 					<div style="margin-left:10%;" class="col-lg-3 col-md-4 mt-sm-30">
 						
 						<h3 class="mb-30">Masuk</h3>
-						<form action="#">
+						<form action="loginpasien" method = "post">
 							<div class="mt-10">
 								<input type="text" name="username" placeholder="Username"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required
@@ -168,11 +161,9 @@
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
 									class="single-input">
 							</div>
-							
+							<button style="margin-top: 40px;" type="submit" class="genric-btn success">Masuk</button>
 						</form>
-						<div style="margin-top: 40px;" class="button-group-area">
-							<a href="#" class="genric-btn success">Masuk</a>
-						</div>
+						
 					</div>
 				</div>
 			</div>

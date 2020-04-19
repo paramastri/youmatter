@@ -13,6 +13,4 @@ class Admin extends Model
     public $id;
     public $username;
     public $password;
-
-
 }
