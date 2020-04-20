@@ -5,6 +5,7 @@ namespace Phalcon\Init\Dashboard\Controllers\Web;
 use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Init\Dashboard\Models\Admin;
+use Phalcon\Init\Dashboard\Models\Psikolog;
 use Phalcon\Http\Request;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Http\Response;
@@ -91,5 +92,57 @@ class AdminController extends Controller
             (new Response())->redirect('loginadmin')->send();          
         }
         $this->view->pick('halamanadmin');
+    }
+
+    public function listpsikologAction()
+    {
+        $listusers = Psikolog::find();
+        $data = array();
+
+        foreach ($listusers as $listuser)
+        {
+
+            if($listuser->status == 1)
+            {
+                $status_sekarang = "Sudah";
+            }
+            else
+            {
+                $status_sekarang = "Belum";
+            }
+
+            $data[] = array(
+                'username' => $listuser->username,
+                'status' => $status_sekarang,
+                'link' => $listuser->id,
+            );
+        }
+
+        $content = json_encode($data);
+        return $this->response->setContent($content);
+
+    }
+
+    public function listpsikologviewAction($id)
+    {
+
+    }
+
+    public function verifdetailAction($id)
+    {   
+        $ids = $this->session->get('admin');
+        if ($ids == NULL) {
+        (new Response())->redirect('loginadmin')->send();          
+        }
+        $this->view->pick('verifdetail');
+        $this->view->data = Psikolog::findFirst("id='$id'");
+    }
+    
+    public function verifpsikologAction($id)
+    {
+        $user = Psikolog::findFirst("id='$id'");
+        $user->status = 1;
+        $user->save();
+        return $this->response->redirect('verifdetail' . '/' . $id);
     }
 }

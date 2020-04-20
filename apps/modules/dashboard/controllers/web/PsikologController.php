@@ -93,7 +93,7 @@ class PsikologController extends Controller
 		                    ]
 		                );
 
-		                (new Response())->redirect('')->send();
+		                (new Response())->redirect('halamanpsikolog')->send();
 		            }
 		            else{
 		                echo "Gagal masuk sebagai psikolog. Silakan cek kembali username dan password anda.";

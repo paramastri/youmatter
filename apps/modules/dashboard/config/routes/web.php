@@ -46,6 +46,34 @@ $router->addGet('/halamanadmin', [
     'action' => 'halamanadmin'
 ]);
 
+$router->addGet('/listpsikolog',[
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'listpsikolog'
+]);
+
+$router->addGet('/listpsikologview/{id}',[
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'listpsikologview'
+]);  
+
+$router->addGet('/verifdetail/{id}',[
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'verifdetail'
+]);
+
+$router->addGet('/verifpsikolog/{id}',[
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'verifpsikolog'
+]);                   
+
 // PASIEN
 
 $router->addGet('/pasien', [

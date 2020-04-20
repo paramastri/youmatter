@@ -23,6 +23,18 @@ class IndexController extends Controller
 
     public function homeAction()
     {
+        $_isAdmin = $this->session->get('admin');
+        $_isPasien = $this->session->get('pasien');
+        $_isPsikolog = $this->session->get('psikolog');
+        if ($_isAdmin) {
+            $this->response->redirect('halamanadmin');
+        }
+        if ($_isPasien) {
+            $this->response->redirect('halamanpasien');
+        }
+        if ($_isPsikolog) {
+            $this->response->redirect('halamanpsikolog');
+        }
         $this->view->pick('home');
     }
 

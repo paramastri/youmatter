@@ -30,6 +30,39 @@
    <link rel="stylesheet" href="../assets/css/responsive.css">
    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
+<style>
+	/*Theme the Tabulator element*/
+#example-table-theme{
+    background-color:#333;
+    border: 1px solid #333;
+    border-radius: 6px;
+}
+
+/*Theme the header*/
+#example-table-theme .tabulator-header {
+    background-color:#333;
+    color:#fff;
+}
+
+/*Allow column header names to wrap lines*/
+#example-table-theme .tabulator-header .tabulator-col,
+#example-table-theme .tabulator-header .tabulator-col-row-handle {
+    background-color:#333;
+}
+
+/*Color the table rows*/
+#example-table-theme .tabulator-tableHolder .tabulator-table .tabulator-row{
+    color:#fff;
+    background-color: #666;
+}
+
+/*Color even rows*/
+    #example-table-theme .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(even) {
+    background-color: #444;
+}
+
+</style>
+
     <script>
       tinymce.init({
         selector: '#mytextarea'
@@ -109,17 +142,36 @@
 	<!-- Start Align Area -->
 	<div style="margin-top: 200px;" class="whole-wrap">
 		<div class="container box_1170">
-			
-			
-
-	
-				<div class="row">
 					<!-- DAFTAR -->
-					<div class="col-lg-6 col-md-6">
+					<div>
 						<h3 class="mb-30">HALAMAN ADMIN! BERHASIL LOGIN!</h3>
-						
+						<div id="example-table-theme"></div>
 					</div>
 
+					<script>
+					    // tabelnya
+					        var table = new Tabulator("#example-table-theme", {
+					            // height: "345px",
+					            width: "300px",
+					            pagination:"local",
+					            paginationSize:10,
+					            layout:"fitColumns",
+					            placeholder: "Tidak Ada Data",
+					            columns: [
+					                {title: "No", field: "no", formatter: "rownum", width: 10},
+					                {title: "Username", field: "username", headerFilter:"input"},
+					                {title: "Status Verifikasi", field: "status", headerFilter:"input"},
+					                {
+					                    title: "Edit", field: "link", formatter: "link", formatterParams: {					labelField: "name",
+					                        label: "Edit",
+					                        urlPrefix: "{{ url('verifdetail/') }}",
+					                        target: "_blank",
+					                    }
+					                },
+					            ],
+					        });
+					        table.setData("{{ url('listpsikolog') }}");
+					</script>
 					
 				</div>
 			</div>

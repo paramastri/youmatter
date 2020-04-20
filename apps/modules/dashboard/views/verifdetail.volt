@@ -8,22 +8,22 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
-        <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logo/logogo.png">
+        <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/logo/logogo.png">
     <!-- Place favicon.ico in the root directory -->
     
   <!-- CSS here -->
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="../assets/css/slicknav.css">
-  <link rel="stylesheet" href="../assets/css/animate.min.css">
-  <link rel="stylesheet" href="../assets/css/magnific-popup.css">
-  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
-  <link rel="stylesheet" href="../assets/css/themify-icons.css">
-  <link rel="stylesheet" href="../assets/css/themify-icons.css">
-  <link rel="stylesheet" href="../assets/css/slick.css">
-  <link rel="stylesheet" href="../assets/css/nice-select.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../assets/css/slicknav.css">
+  <link rel="stylesheet" href="../../assets/css/animate.min.css">
+  <link rel="stylesheet" href="../../assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="../../assets/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="../../assets/css/themify-icons.css">
+  <link rel="stylesheet" href="../../assets/css/themify-icons.css">
+  <link rel="stylesheet" href="../../assets/css/slick.css">
+  <link rel="stylesheet" href="../../assets/css/nice-select.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="../assets/img/logo/logogo.png" alt="">
+                    <img src="../../assets/img/logo/logogo.png" alt="">
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="index.html"><img style="width: 30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                <a href="{{ url('/') }}"><img style="width: 30%;" src="../../assets/img/logo/logogo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -58,13 +58,11 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li><a href="/">Beranda</a></li>
-                                        <li class="active"><a href="artikel">Artikel</a></li>
-                                        <li><a href="#">Masuk</a>
+                                        {% if (session.get('admin')['username']) %}
+                                        <li><a href="#">Hai, {{ session.get('admin')['username'] }}!</a>
                                             <ul class="submenu">
-                                                <li><a href="pasien">Pasien</a></li>
-                                                <li><a href="psikolog">Psikolog</a></li>
-                                                <li><a href="admin">Admin</a></li>
+                                            {% endif %}
+                                                <li><a href="{{ url('logoutadmin') }}">Logout</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -86,13 +84,7 @@
 <!--     <div class="services-area"> -->
         <div style="margin-top: 15%;" class="container">
             <!-- Section-tittle -->
-            <div class="row d-flex">
-                <div class="col-lg-8">
-                    <div class="section-tittle mb-80">
-                        <h2 >Artikel</h2>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!-- Slider Area End-->
@@ -100,35 +92,10 @@
     <!--================Blog Area =================-->
     <section class="blog_area section-paddingr">
         <div class="container">
-            <div class="row">
-              <!--   <div class="col-lg-8 mb-5 mb-lg-0"> -->
-                    <div class="blog_left_sidebar">
-                        <article style="width: 50%;" class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="../assets/img/blog/single_blog_5.png" alt="">
-                                <a style="pointer-events: none;" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <!-- <p>Jan</p> -->
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
+         
 
 
                         <article style="width: 50%;" class="blog_item">
-                            
-
                             <div class="blog_details">
                                 <a class="d-inline-block" href="single-blog.html">
                                     <h2>Detail Akun Psikolog</h2>
@@ -137,27 +104,35 @@
                                 <table>
                                   <tr>
                                     <td>Nama Lengkap</td>
-                                    <td>:</td>
+                                    <td>: {{data.nama}}</td>
                                   </tr>
                                   <tr>
                                     <td>Username</td>
-                                    <td>:</td>
+                                    <td>: {{data.username}}</td>
                                   </tr>
                                   <tr>
                                     <td>Email</td>
-                                    <td>:</td>
+                                    <td>: {{data.email}}</td>
                                   </tr>
                                   <tr>
                                     <td>No. Telepon</td>
-                                    <td>:</td>
+                                    <td>: {{data.telepon}}</td>
                                   </tr>
                                   <tr>
-                                    <td>Nomor Registrasi STRPK</td>
-                                    <td>:</td>
+                                    <td>No. Registrasi STRPK</td>
+                                    <td>: {{data.str}}</td>
                                   </tr>
                                 </table>
                             </div>
+                            {% if (data.status == 1) %}
+                            <a style="margin-top: 40px;" href="{{ url('halamanadmin') }}" class="genric-btn default">Kembali</a>
+                            <a style="margin-top: 40px; color: black;" href="#" class="genric-btn disable">Akun Terverifikasi</a>
+                            {% else %}
+                            <a style="margin-top: 40px;" href="{{ url('halamanadmin') }}" class="genric-btn default">Kembali</a>
+                            <a style="margin-top: 40px;" href="../verifpsikolog/{{data.id}}" class="genric-btn success">Verifikasi</a>
+                            {% endif %}
                         </article>
+
 
             
 
@@ -181,7 +156,7 @@
                          <div class="single-footer-caption mb-30">
                               <!-- logo -->
                              <div class="footer-logo">
-                                 <a href="index.html"><img style="width:30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                 <a href="{{ url('/') }}"><img style="width:30%;" src="../../assets/img/logo/logogo.png" alt=""></a>
                              </div>
                              <div class="footer-tittle">
                                  <div class="footer-pera">
@@ -231,7 +206,7 @@
                                      <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
                                          <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
                                          <div class="form-icon">
-                                             <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="../assets/img/shape/form_icon.png" alt=""></button>
+                                             <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="../../assets/img/shape/form_icon.png" alt=""></button>
                                          </div>
                                          <div class="mt-10 info"></div>
                                      </form>
@@ -256,39 +231,39 @@
 <!-- JS here -->
 	
 		<!-- All JS Custom Plugins Link Here here -->
-        <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="../../assets/js/vendor/modernizr-3.5.0.min.js"></script>
 		
 		<!-- Jquery, Popper, Bootstrap -->
-		<script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../../assets/js/popper.min.js"></script>
+        <script src="../../assets/js/bootstrap.min.js"></script>
 	    <!-- Jquery Mobile Menu -->
-        <script src="../assets/js/jquery.slicknav.min.js"></script>
+        <script src="../../assets/js/jquery.slicknav.min.js"></script>
 
 		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="../assets/js/owl.carousel.min.js"></script>
-        <script src="../assets/js/slick.min.js"></script>
+        <script src="../../assets/js/owl.carousel.min.js"></script>
+        <script src="../../assets/js/slick.min.js"></script>
 
 		<!-- One Page, Animated-HeadLin -->
-        <script src="../assets/js/wow.min.js"></script>
-		<script src="../assets/js/animated.headline.js"></script>
+        <script src="../../assets/js/wow.min.js"></script>
+		<script src="../../assets/js/animated.headline.js"></script>
 		
 		<!-- Scrollup, nice-select, sticky -->
-        <script src="../assets/js/jquery.scrollUp.min.js"></script>
-        <script src="../assets/js/jquery.nice-select.min.js"></script>
-		<script src="../assets/js/jquery.sticky.js"></script>
-        <script src="../assets/js/jquery.magnific-popup.js"></script>
+        <script src="../../assets/js/jquery.scrollUp.min.js"></script>
+        <script src="../../assets/js/jquery.nice-select.min.js"></script>
+		<script src="../../assets/js/jquery.sticky.js"></script>
+        <script src="../../assets/js/jquery.magnific-popup.js"></script>
 
         <!-- contact js -->
-        <script src="../assets/js/contact.js"></script>
-        <script src="../assets/js/jquery.form.js"></script>
-        <script src="../assets/js/jquery.validate.min.js"></script>
-        <script src="../assets/js/mail-script.js"></script>
-        <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="../../assets/js/contact.js"></script>
+        <script src="../../assets/js/jquery.form.js"></script>
+        <script src="../../assets/js/jquery.validate.min.js"></script>
+        <script src="../../assets/js/mail-script.js"></script>
+        <script src="../../assets/js/jquery.ajaxchimp.min.js"></script>
         
 		<!-- Jquery Plugins, main Jquery -->	
-        <script src="../assets/js/plugins.js"></script>
-        <script src="../assets/js/main.js"></script>
+        <script src="../../assets/js/plugins.js"></script>
+        <script src="../../assets/js/main.js"></script>
 
 </body>
 </html>
