@@ -59,11 +59,7 @@
                                         <li><a href="artikel">Artikel</a></li>
                                         <li><a href="#">Masuk</a>
                                             <ul class="submenu">
-                                      <!--           {% if (session.get('admin')['username']) %} -->
-                                                <!-- <li><a href="pasien">Hai, {{ session.get('pasien')['username'] }}!</a></li> -->
-                                             <!--    {% else %} -->
                                                 <li><a href="pasien">Pasien</a></li>
-                                          <!--       {% endif %} -->
                                                 <li><a href="psikolog">Psikolog</a></li>
                                                 <li><a href="loginadmin">Admin</a></li>
                                             </ul>

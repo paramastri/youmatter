@@ -12,8 +12,11 @@
 	<link rel="shortcut icon" type="image/x-icon" href="../assets/img/logo/logogo.png">
 	<!-- Place favicon.ico in the root directory -->
 
+	<!-- tabulator -->
+    <link href="{{ url("tabulator.min.css") }}" rel="stylesheet">
+    <script src="{{ url("tabulator.min.js") }}"></script>
 	
- <!-- CSS here -->
+ 	<!-- CSS here -->
    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
    <link rel="stylesheet" href="../assets/css/slicknav.css">
@@ -66,16 +69,13 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li class="active"><a href="#">Masuk</a>
+                                        {% if (session.get('admin')['username']) %}
+                                        <li><a href="#">Hai, {{ session.get('admin')['username'] }}!</a>
                                             <ul class="submenu">
-                                                <li><a href="pasien">Pasien</a></li>
-                                                <li><a href="psikolog">Psikolog</a></li>
-                                                {% if (session.get('admin')['username']) %}
-                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="#">Hai, {{ session.get('admin')['username'] }}!</a></li>
-                                                {% endif %}
+                                        		{% endif %}
+                                                <li><a href="logoutadmin">Logout</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="logoutadmin">Logout</a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -66,15 +66,16 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li><a href="/">Beranda</a></li>
-                                        <li><a href="artikel">Artikel</a></li>
-                                        <li class="active"><a href="#">Masuk</a>
+                                        <li><a href="#">Pertanyaan</a></li>
+                                        <li><a href="#">Artikel Saya</a></li>
+                                        {% if (session.get('psikolog')['username']) %}
+                                        <li><a href="#">Hai, {{ session.get('psikolog')['username'] }}!</a>
                                             <ul class="submenu">
-                                                <li><a href="pasien">Pasien</a></li>
-                                                <li style="background-color: #FCFFB6; border-radius: 5px;"><a href="psikolog">Psikolog</a></li>
-                                                <li><a href="loginadmin">Admin</a></li>
+                                        		{% endif %}
+                                                <li><a href="logoutpsikolog">Logout</a></li>
                                             </ul>
                                         </li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -92,7 +93,7 @@
 	<!-- Slider Area Start-->
 
 <div>
-	<!-- <div class="services-area">
+<!-- 	<div class="services-area sky-blue">
 		
 	</div> -->
 	<!-- Slider Area End-->
@@ -108,72 +109,25 @@
 	<!-- Start Align Area -->
 	<div style="margin-top: 200px;" class="whole-wrap">
 		<div class="container box_1170">
+			
+			
+
+	
 				<div class="row">
 					<!-- DAFTAR -->
 					<div class="col-lg-6 col-md-6">
-						<h3 class="mb-30">Daftar Psikolog</h3>
-						<form action="daftarpsikolog" method = "post">
-							<div class="mt-10">
-								<input type="text" name="nama" placeholder="Nama Lengkap"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Lengkap'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="text" name="username" placeholder="Username"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="email" name="email" placeholder="Email"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="password" name="password" placeholder="Password"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="text" name="telepon" placeholder="Nomor Telepon"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'No. Telepon'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="text" name="str" placeholder="No. Registrasi STRPK"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'No. Registrasi STRPK'" required
-									class="single-input">
-							</div>
-							<button style="margin-top: 40px;" type="submit" class="genric-btn success">Daftar</button>
-						</form>
-					</div>
-
-					<!-- LOGIN -->
-
-					<div style="margin-left:10%;" class="col-lg-3 col-md-4 mt-sm-30">
-						
-						<h3 class="mb-30">Masuk</h3>
-						<form action="loginpsikolog" method = "post">
-							<div class="mt-10">
-								<input type="text" name="username" placeholder="Username"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required
-									class="single-input">
-							</div>
-							<div class="mt-10">
-								<input type="password" name="password" placeholder="Password"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
-									class="single-input">
-							</div>
-							<button style="margin-top: 40px;" type="submit" class="genric-btn success">Masuk</button>
-						</form>
+						<h3 class="mb-30">HALAMAN PSIKOLOG! BERHASIL LOGIN!</h3>
 						
 					</div>
+
+					
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- End Align Area -->
 	<div style="margin-top: 200px;">
-	<footer>
+	<footer style="background-color: #f4feff;">
 		<!-- Footer Start-->
 	   <div class="footer-main">
 		 <div class="footer-area footer-padding2">

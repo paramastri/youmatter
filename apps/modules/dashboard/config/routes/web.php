@@ -2,14 +2,6 @@
 
 $namespace =  'Phalcon\Init\Dashboard\Controllers\Web';
 
-$router->addGet('/psikolog', [
-    'namespace' => $namespace,
-    'module' => 'dashboard',
-    'controller' => 'psikolog',
-    'action' => 'psikolog'
-]);
-
-
 // ADMIN
 
 $router->addGet('/daftaradmin', [
@@ -89,6 +81,44 @@ $router->addGet('/halamanpasien', [
     'module' => 'dashboard',
     'controller' => 'pasien',
     'action' => 'halamanpasien'
+]);
+
+
+// PSIKOLOG
+
+$router->addGet('/psikolog', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'psikolog',
+    'action' => 'psikolog'
+]);
+
+$router->addPost('/daftarpsikolog', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'psikolog',
+    'action' => 'storeregister'
+]);
+
+$router->addPost('/loginpsikolog', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'psikolog',
+    'action' => 'storelogin'
+]);
+
+$router->addGet('/logoutpsikolog', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'psikolog',
+    'action' => 'logout'
+]);
+
+$router->addGet('/halamanpsikolog', [
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'psikolog',
+    'action' => 'halamanpsikolog'
 ]);
 
 return $router;
