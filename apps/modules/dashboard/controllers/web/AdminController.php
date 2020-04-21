@@ -145,4 +145,12 @@ class AdminController extends Controller
         $user->save();
         return $this->response->redirect('verifdetail' . '/' . $id);
     }
+
+    public function unverifpsikologAction($id)
+    {
+        $user = Psikolog::findFirst("id='$id'");
+        $user->status = 0;
+        $user->save();
+        return $this->response->redirect('verifdetail' . '/' . $id);
+    }
 }

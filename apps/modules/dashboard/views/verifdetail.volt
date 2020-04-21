@@ -97,7 +97,6 @@
 
                         <article style="width: 50%;" class="blog_item">
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
                                     <h2>Detail Akun Psikolog</h2>
                                 </a>
 
@@ -126,7 +125,7 @@
                             </div>
                             {% if (data.status == 1) %}
                             <a style="margin-top: 40px;" href="{{ url('halamanadmin') }}" class="genric-btn default">Kembali</a>
-                            <a style="margin-top: 40px; color: black;" href="#" class="genric-btn disable">Akun Terverifikasi</a>
+                            <a style="margin-top: 40px;" href="../unverifpsikolog/{{data.id}}" class="genric-btn danger">Urungkan Verifikasi</a>
                             {% else %}
                             <a style="margin-top: 40px;" href="{{ url('halamanadmin') }}" class="genric-btn default">Kembali</a>
                             <a style="margin-top: 40px;" href="../verifpsikolog/{{data.id}}" class="genric-btn success">Verifikasi</a>

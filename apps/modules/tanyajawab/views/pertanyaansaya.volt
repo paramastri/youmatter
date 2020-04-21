@@ -12,8 +12,11 @@
 	<link rel="shortcut icon" type="image/x-icon" href="../assets/img/logo/logogo.png">
 	<!-- Place favicon.ico in the root directory -->
 
+	<!-- tabulator -->
+    <link href="{{ url("tabulator.min.css") }}" rel="stylesheet">
+    <script src="{{ url("tabulator.min.js") }}"></script>
 	
- <!-- CSS here -->
+ 	<!-- CSS here -->
    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
    <link rel="stylesheet" href="../assets/css/slicknav.css">
@@ -26,6 +29,39 @@
    <link rel="stylesheet" href="../assets/css/style.css">
    <link rel="stylesheet" href="../assets/css/responsive.css">
    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<style>
+	/*Theme the Tabulator element*/
+#example-table-theme{
+    background-color:#333;
+    border: 1px solid #333;
+    border-radius: 6px;
+}
+
+/*Theme the header*/
+#example-table-theme .tabulator-header {
+    background-color:#333;
+    color:#fff;
+}
+
+/*Allow column header names to wrap lines*/
+#example-table-theme .tabulator-header .tabulator-col,
+#example-table-theme .tabulator-header .tabulator-col-row-handle {
+    background-color:#333;
+}
+
+/*Color the table rows*/
+#example-table-theme .tabulator-tableHolder .tabulator-table .tabulator-row{
+    color:#fff;
+    background-color: #666;
+}
+
+/*Color even rows*/
+    #example-table-theme .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(even) {
+    background-color: #444;
+}
+
+</style>
 
     <script>
       tinymce.init({
@@ -110,36 +146,37 @@
 	<!-- Start Align Area -->
 	<div style="margin-top: 200px;" class="whole-wrap">
 		<div class="container box_1170">
-			
-			
-
-	
-				<div class="row">
-					<!-- TANYA -->
-					<div class="col-lg-8 col-md-8">
-						<h3 class="mb-30">Ajukan Pertanyaan</h3>
-						<form action="tanya" method="post">
-							<div class="mt-10">
-								<input type="text" name="topik" placeholder="Topik"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Topik'" required
-									class="single-input">
-							</div>
-						
-
-							<div class="mt-10">
-								<textarea class="single-textarea" name="pertanyaan" placeholder="Pertanyaan" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Pertanyaan'" required></textarea>
-							</div>
-							<a style="margin-top: 40px;" href="pertanyaansaya" class="genric-btn default">Kembali</a>
-							<button style="margin-top: 40px;" type="submit" class="genric-btn success">Selesai</button>
-						
-						</form>
-						
+					<!-- DAFTAR -->
+					<div>
+						<h3 class="mb-30">Daftar Pertanyaan Saya</h3>
+						<a style="margin-bottom: 20px;" href="tanya" class="genric-btn default">Tanya Lagi</a>
+						<div id="example-table-theme"></div>
 					</div>
 
+					<script>
+					    // tabelnya
+					        var table = new Tabulator("#example-table-theme", {
+					            // height: "345px",
+					            width: "300px",
+					            pagination:"local",
+					            paginationSize:10,
+					            layout:"fitColumns",
+					            placeholder: "Tidak Ada Data",
+					            columns: [
+					                {title: "No", field: "no", formatter: "rownum", width: 10},
+					                {title: "Topik", field: "topik", headerFilter:"input"},
+					                {title: "Status Pertanyaan", field: "status", headerFilter:"input"},
+					                {
+					                    title: "Detail", field: "link", formatter: "link", formatterParams: {					labelField: "name",
+					                        label: "Detail",
+					                        urlPrefix: "{{ url('pertanyaansayadet/') }}",
+					                    }
+					                },
+					            ],
+					        });
+					        table.setData("{{ url('listpertanyaansaya') }}");
+					</script>
 					
-
-				
 				</div>
 			</div>
 		</div>

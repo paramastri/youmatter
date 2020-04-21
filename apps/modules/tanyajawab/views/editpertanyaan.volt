@@ -9,22 +9,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- <link rel="manifest" href="site.webmanifest"> -->
-	<link rel="shortcut icon" type="image/x-icon" href="../assets/img/logo/logogo.png">
+	<link rel="shortcut icon" type="image/x-icon" href="../../assets/img/logo/logogo.png">
 	<!-- Place favicon.ico in the root directory -->
 
 	
  <!-- CSS here -->
-   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-   <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-   <link rel="stylesheet" href="../assets/css/slicknav.css">
-   <link rel="stylesheet" href="../assets/css/animate.min.css">
-   <link rel="stylesheet" href="../assets/css/magnific-popup.css">
-   <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
-   <link rel="stylesheet" href="../assets/css/themify-icons.css">
-   <link rel="stylesheet" href="../assets/css/slick.css">
-   <link rel="stylesheet" href="../assets/css/nice-select.css">
-   <link rel="stylesheet" href="../assets/css/style.css">
-   <link rel="stylesheet" href="../assets/css/responsive.css">
+   <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+   <link rel="stylesheet" href="../../assets/css/slicknav.css">
+   <link rel="stylesheet" href="../../assets/css/animate.min.css">
+   <link rel="stylesheet" href="../../assets/css/magnific-popup.css">
+   <link rel="stylesheet" href="../../assets/css/fontawesome-all.min.css">
+   <link rel="stylesheet" href="../../assets/css/themify-icons.css">
+   <link rel="stylesheet" href="../../assets/css/slick.css">
+   <link rel="stylesheet" href="../../assets/css/nice-select.css">
+   <link rel="stylesheet" href="../../assets/css/style.css">
+   <link rel="stylesheet" href="../../assets/css/responsive.css">
    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
@@ -42,7 +42,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="../assets/img/logo/logogo.png" alt="">
+                    <img src="../../assets/img/logo/logogo.png" alt="">
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="/"><img style="width: 30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                <a href="/"><img style="width: 30%;" src="../../assets/img/logo/logogo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -66,14 +66,14 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li><a href="/">Beranda</a></li>
-                                        <li><a href="artikel">Artikel</a></li>
-                                        <li class="active"><a href="pertanyaansaya">Pertanyaan</a></li>
+                                        <li><a href="{{ url('/') }}">Beranda</a></li>
+                                        <li><a href="{{ url('artikel') }}">Artikel</a></li>
+                                        <li class="active"><a href="{{ url('pertanyaansaya') }}">Pertanyaan</a></li>
                                         {% if (session.get('pasien')['username']) %}
                                         <li><a href="#">Hai, {{ session.get('pasien')['username'] }}!</a>
                                             <ul class="submenu">
                                                 {% endif %}
-                                                <li><a href="logoutpasien">Logout</a></li>
+                                                <li><a href="{{ url('logoutpasien') }}">Logout</a></li>
                                             </ul>
                                         </li>
 
@@ -117,10 +117,10 @@
 				<div class="row">
 					<!-- TANYA -->
 					<div class="col-lg-8 col-md-8">
-						<h3 class="mb-30">Ajukan Pertanyaan</h3>
-						<form action="tanya" method="post">
+						<h3 class="mb-30">Ubah Pertanyaan</h3>
+						<form action="{{ url("storeeditpertanyaan") }}" method="post">
 							<div class="mt-10">
-								<input type="text" name="topik" placeholder="Topik"
+								<input type="text" name="topik" placeholder="Topik" value="{{data.topik}}"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Topik'" required
 									class="single-input">
 							</div>
@@ -128,9 +128,13 @@
 
 							<div class="mt-10">
 								<textarea class="single-textarea" name="pertanyaan" placeholder="Pertanyaan" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Pertanyaan'" required></textarea>
+									onblur="this.placeholder = 'Pertanyaan'" required>{{data.pertanyaan}}</textarea>
 							</div>
-							<a style="margin-top: 40px;" href="pertanyaansaya" class="genric-btn default">Kembali</a>
+
+							<div class="form-group">
+					            <input type="hidden" name="id" id="id" value={{data.id}}>
+					        </div>
+							<a style="margin-top: 40px;" href="../pertanyaansayadet/{{data.id}}" class="genric-btn default">Kembali</a>
 							<button style="margin-top: 40px;" type="submit" class="genric-btn success">Selesai</button>
 						
 						</form>
@@ -156,7 +160,7 @@
 						  <div class="single-footer-caption mb-30">
 							   <!-- logo -->
 							  <div class="footer-logo">
-                                 <a href="/"><img style="width:30%;" src="../assets/img/logo/logogo.png" alt=""></a>
+                                 <a href="/"><img style="width:30%;" src="../../assets/img/logo/logogo.png" alt=""></a>
                              </div>
 							  <div class="footer-tittle">
 								  <div class="footer-pera">
@@ -206,7 +210,7 @@
 									  <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
 										  <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
 										  <div class="form-icon">
-											  <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="../assets/img/shape/form_icon.png" alt=""></button>
+											  <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="../../assets/img/shape/form_icon.png" alt=""></button>
 										  </div>
 										  <div class="mt-10 info"></div>
 									  </form>
@@ -228,39 +232,39 @@
 <!-- JS here -->
 	
 		<!-- All JS Custom Plugins Link Here here -->
-        <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="../../assets/js/vendor/modernizr-3.5.0.min.js"></script>
 		
 		<!-- Jquery, Popper, Bootstrap -->
-		<script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../../assets/js/popper.min.js"></script>
+        <script src="../../assets/js/bootstrap.min.js"></script>
 	    <!-- Jquery Mobile Menu -->
-        <script src="../assets/js/jquery.slicknav.min.js"></script>
+        <script src="../../assets/js/jquery.slicknav.min.js"></script>
 
 		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="../assets/js/owl.carousel.min.js"></script>
-		<script src="../assets/js/slick.min.js"></script>
+        <script src="../../assets/js/owl.carousel.min.js"></script>
+		<script src="../../assets/js/slick.min.js"></script>
 		
 		<!-- One Page, Animated-HeadLin -->
-        <script src="../assets/js/wow.min.js"></script>
-		<script src="../assets/js/animated.headline.js"></script>
-		<script src="../assets/js/jquery.magnific-popup.js"></script>
+        <script src="../../assets/js/wow.min.js"></script>
+		<script src="../../assets/js/animated.headline.js"></script>
+		<script src="../../assets/js/jquery.magnific-popup.js"></script>
 		
 		<!-- Scrollup, nice-select, sticky -->
-        <script src="../assets/js/jquery.scrollUp.min.js"></script>
-        <script src="../assets/js/jquery.nice-select.min.js"></script>
-		<script src="../assets/js/jquery.sticky.js"></script>
+        <script src="../../assets/js/jquery.scrollUp.min.js"></script>
+        <script src="../../assets/js/jquery.nice-select.min.js"></script>
+		<script src="../../assets/js/jquery.sticky.js"></script>
         
         <!-- contact js -->
-        <script src="../assets/js/contact.js"></script>
-        <script src="../assets/js/jquery.form.js"></script>
-        <script src="../assets/js/jquery.validate.min.js"></script>
-        <script src="../assets/js/mail-script.js"></script>
-        <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="../../assets/js/contact.js"></script>
+        <script src="../../assets/js/jquery.form.js"></script>
+        <script src="../../assets/js/jquery.validate.min.js"></script>
+        <script src="../../assets/js/mail-script.js"></script>
+        <script src="../../assets/js/jquery.ajaxchimp.min.js"></script>
         
 		<!-- Jquery Plugins, main Jquery -->	
-        <script src="../assets/js/plugins.js"></script>
-        <script src="../assets/js/main.js"></script>
+        <script src="../../assets/js/plugins.js"></script>
+        <script src="../../assets/js/main.js"></script>
         
 </body>
 </html>

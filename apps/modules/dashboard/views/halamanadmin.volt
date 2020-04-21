@@ -165,7 +165,6 @@
 					                    title: "Edit", field: "link", formatter: "link", formatterParams: {					labelField: "name",
 					                        label: "Edit",
 					                        urlPrefix: "{{ url('verifdetail/') }}",
-					                        target: "_blank",
 					                    }
 					                },
 					            ],

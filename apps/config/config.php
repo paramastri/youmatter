@@ -12,7 +12,7 @@ return new Config(
             'username' => getenv('DB_USERNAME'),
             'password' => getenv('DB_PASSWORD'),
             'dbname' => getenv('DB_NAME'),
-            'post' => getenv('DB_PORT'),
+            'port' => getenv('DB_PORT'),
             'charset' => getenv('DB_CHARSET')
         ],   
         

@@ -72,6 +72,13 @@ $router->addGet('/verifpsikolog/{id}',[
     'module' => 'dashboard',
     'controller' => 'admin',
     'action' => 'verifpsikolog'
+]); 
+
+$router->addGet('/unverifpsikolog/{id}',[
+    'namespace' => $namespace,
+    'module' => 'dashboard',
+    'controller' => 'admin',
+    'action' => 'unverifpsikolog'
 ]);                   
 
 // PASIEN
