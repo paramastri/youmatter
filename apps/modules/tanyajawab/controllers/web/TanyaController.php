@@ -7,6 +7,7 @@ use Phalcon\Mvc\Dispatcher;
 use Phalcon\Init\Dashboard\Models\Pasien;
 use Phalcon\Init\Tanyajawab\Models\Pertanyaan;
 use Phalcon\Http\Request;
+use Phalcon\Http\Response;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Model\Query;
 

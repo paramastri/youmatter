@@ -7,6 +7,7 @@ use Phalcon\Mvc\Dispatcher;
 // use Phalcon\Init\Dashboard\Models\Users;
 use Phalcon\Http\Request;
 use Phalcon\Events\Manager as EventsManager;
+use Phalcon\Http\Response;
 
 class IndexController extends Controller
 {

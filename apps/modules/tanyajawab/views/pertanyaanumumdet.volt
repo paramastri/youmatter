@@ -58,7 +58,7 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                      <li><a href="/">Beranda</a></li>
+                                      <li><a href="{{ url('/') }}">Beranda</a></li>
                                         <li class="active"><a href="{{ url('pertanyaanumum') }}">Pertanyaan</a></li>
                                         <li><a href="#">Artikel</a>
                                           <ul class="submenu">

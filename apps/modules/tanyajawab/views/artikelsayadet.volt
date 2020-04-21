@@ -58,15 +58,22 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li><a href="/">Beranda</a></li>
-                                        <li class="active"><a href="artikel">Artikel</a></li>
-                                        <!-- <li><a href="#">Masuk</a>
-                                            <ul class="submenu">
-                                                <li><a href="pasien">Pasien</a></li>
-                                                <li><a href="psikolog">Psikolog</a></li>
-                                                <li><a href="loginadmin">Admin</a></li>
+                                      <li><a href="{{ url('/') }}">Beranda</a></li>
+                                        <li><a href="{{ url('pertanyaanumum') }}">Pertanyaan</a></li>
+                                        <li class="active"><a href="#">Artikel</a>
+                                          <ul class="submenu">
+                                                <li><a href="{{ url('artikel') }}">Semua Artikel</a></li>
+                                                <li><a href="{{ url('artikelsaya') }}">Artikel Saya</a></li>
                                             </ul>
-                                        </li> -->
+                                        </li>
+                                        {% if (session.get('psikolog')['username']) %}
+                                        <li><a href="#">Hai, {{ session.get('psikolog')['username'] }}!</a>
+                                            <ul class="submenu">
+                                            {% endif %}
+                                                <li><a href="{{ url('logoutpsikolog') }}">Logout</a></li>
+                                            </ul>
+                                        </li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -94,30 +101,31 @@
     <!--================Blog Area =================-->
     <section class="blog_area section-paddingr">
         <div class="container">
-         <!--    <div class="row"> -->
+            <div class="row">
               <!--   <div class="col-lg-8 mb-5 mb-lg-0"> -->
                     <div class="blog_left_sidebar">
-                       {% for artikel in artikels %}
-                        <article style="width: 100%; margin-top: 10%;" class="blog_item" >
+                        <article style="width: 50%;" class="blog_item">
                             <div class="blog_item_img"><!-- 
                                 <img class="card-img rounded-0" src="../assets/img/blog/single_blog_5.png" alt=""> -->
                                 <a style="pointer-events: none;" class="blog_item_date">
-                                    <h3>{{artikel.kode}}</h3>
+                                    <h3>{{data.kode}}</h3>
                                     <!-- <p>Jan</p> -->
                                 </a>
                             </div>
 
                             <div class="blog_details">
                                 <a class="d-inline-block" href="single-blog.html">
-                                    <h2>{{artikel.judul}}</h2>
+                                    <h2>{{data.judul}}</h2>
                                 </a>
-                                <p>{{artikel.isi}}</p>
+                                <p>{{data.isi}}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Ditulis oleh: {{artikel.penulis}}</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i> Ditulis oleh: {{data.penulis}}</a></li>
                                 </ul>
                             </div>
+                            <a style="margin-top: 40px;" href="{{ url('artikelsaya') }}" class="genric-btn default">Kembali</a>
+                            <a style="margin-top: 40px;" href="../editartikel/{{data.id}}" class="genric-btn primary">Ubah</a>
+                            <a style="margin-top: 40px;" href="../hapusartikel/{{data.id}}" class="genric-btn danger">Hapus</a>
                         </article>
-                        {% endfor %}
 
                         
 
@@ -216,29 +224,29 @@
 
    </footer>
 <!-- JS here -->
-	
-		<!-- All JS Custom Plugins Link Here here -->
+  
+    <!-- All JS Custom Plugins Link Here here -->
         <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
-		
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="../assets/js/popper.min.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
-	    <!-- Jquery Mobile Menu -->
+      <!-- Jquery Mobile Menu -->
         <script src="../assets/js/jquery.slicknav.min.js"></script>
 
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
         <script src="../assets/js/owl.carousel.min.js"></script>
         <script src="../assets/js/slick.min.js"></script>
 
-		<!-- One Page, Animated-HeadLin -->
+    <!-- One Page, Animated-HeadLin -->
         <script src="../assets/js/wow.min.js"></script>
-		<script src="../assets/js/animated.headline.js"></script>
-		
-		<!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/animated.headline.js"></script>
+    
+    <!-- Scrollup, nice-select, sticky -->
         <script src="../assets/js/jquery.scrollUp.min.js"></script>
         <script src="../assets/js/jquery.nice-select.min.js"></script>
-		<script src="../assets/js/jquery.sticky.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
         <script src="../assets/js/jquery.magnific-popup.js"></script>
 
         <!-- contact js -->
@@ -248,7 +256,7 @@
         <script src="../assets/js/mail-script.js"></script>
         <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
         
-		<!-- Jquery Plugins, main Jquery -->	
+    <!-- Jquery Plugins, main Jquery -->  
         <script src="../assets/js/plugins.js"></script>
         <script src="../assets/js/main.js"></script>
 

@@ -25,6 +25,48 @@ $router->addPost('/storeartikel', [
     'action' => 'storeartikel'
 ]);
 
+$router->addGet('/artikelsaya', [
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'artikel',
+    'action' => 'artikelsaya'
+]);
+
+$router->addGet('/listartikelsaya', [
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'artikel',
+    'action' => 'listartikelsaya'
+]);
+
+$router->addGet('/artikelsayadet/{id}', [
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'artikel',
+    'action' => 'artikelsayadet'
+]);
+
+$router->addGet('/editartikel/{id}',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'artikel',
+    'action' => 'editartikel'
+]);
+
+$router->addPost('/storeeditartikel',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'artikel',
+    'action' => 'storeeditartikel'
+]);
+
+$router->addGet('/hapusartikel/{id}',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'artikel',
+    'action' => 'hapusartikel'
+]);
+
 // TANYA
 
 $router->addGet('/tanya', [
