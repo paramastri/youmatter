@@ -58,14 +58,14 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li><a href="{{ url('/') }}">Beranda</a></li>
-                                        <li><a href="{{ url('artikel') }}">Artikel</a></li>
-                                        <li class="active"><a href="{{ url('pertanyaansaya') }}">Pertanyaan</a></li>
-                                        {% if (session.get('pasien')['username']) %}
-                                        <li><a href="#">Hai, {{ session.get('pasien')['username'] }}!</a>
+                                      <li><a href="/">Beranda</a></li>
+                                        <li class="active"><a href="pertanyaanumum" >Pertanyaan</a></li>
+                                        <li><a href="#">Artikel Saya</a></li>
+                                        {% if (session.get('psikolog')['username']) %}
+                                        <li><a href="#">Hai, {{ session.get('psikolog')['username'] }}!</a>
                                             <ul class="submenu">
-                                                {% endif %}
-                                                <li><a href="{{ url('logoutpasien') }}">Logout</a></li>
+                                            {% endif %}
+                                                <li><a href="logoutpsikolog">Logout</a></li>
                                             </ul>
                                         </li>
 
@@ -86,7 +86,7 @@
 
     <!-- Slider Area Start-->
 <!--     <div class="services-area"> -->
-        <div style="margin-top: 15%;" class="container">
+        <div style="margin-top: 9%;" class="container">
             <!-- Section-tittle -->
             
         </div>
@@ -109,7 +109,7 @@
                                     <td><b>Kode Pertanyaan<b></td>
                                   </tr>
                                   <tr>
-                                    <td>{{data.id}}</td>
+                                    <td>{{data.id}} <i>(ingat-ingat untuk menuliskan kodenya pada artikel)<i></td>
                                   </tr>
                                   <tr>
                                     <td><b>Topik<b></td>
@@ -126,9 +126,17 @@
                                   
                                 </table>
                             </div>
-                            <a style="margin-top: 40px;" href="{{ url('pertanyaansaya') }}" class="genric-btn default">Kembali</a>
-                            <a style="margin-top: 40px;" href="../editpertanyaan/{{data.id}}" class="genric-btn primary">Ubah</a>
-                            <a style="margin-top: 40px;" href="../hapuspertanyaan/{{data.id}}" class="genric-btn danger">Hapus</a>
+                            
+                            {% if (data.status == 1) %}
+                            <a style="margin-top: 20px;" href="{{ url('pertanyaanumum') }}" class="genric-btn default">Kembali</a>
+                            <a style="margin-top: 20px;" href="../urungkanjawab/{{data.id}}" class="genric-btn danger">Urungkan Jawab*</a>
+                            <a style="margin-top: 20px;" href="{{ url('tulisartikel') }}" class="genric-btn success">Tulis Artikel (Kode {{data.id}})</a>
+                            {% else %}
+                            <a style="margin-top: 20px;" href="{{ url('pertanyaanumum') }}" class="genric-btn default">Kembali</a>
+                            <a style="margin-top: 20px;" href="../jawab/{{data.id}}" class="genric-btn success">Jawab*</a>
+
+                            {% endif %}
+                            <p style="margin-top: 20px;">*Setelah menekan jawab, anda harus langsung menulis artikelnya. Urungkan apabila belum siap menulis.</p>
                             
                         </article>
 

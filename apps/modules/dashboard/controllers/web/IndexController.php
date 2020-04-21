@@ -43,4 +43,12 @@ class IndexController extends Controller
         $this->view->pick('artikel');
     }
 
+    public function route404Action()
+    {
+        $this->view->pick('error');
+    }
+
+
+
+
 }   

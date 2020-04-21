@@ -41,11 +41,25 @@ $router->addGet('/pertanyaansaya',[
     'action' => 'pertanyaansaya'
 ]);
 
+$router->addGet('/pertanyaanumum',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'tanya',
+    'action' => 'pertanyaanumum'
+]);
+
 $router->addGet('/listpertanyaansaya',[
     'namespace' => $namespace,
     'module' => 'tanyajawab',
     'controller' => 'tanya',
     'action' => 'listpertanyaansaya'
+]);
+
+$router->addGet('/listpertanyaanumum',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'tanya',
+    'action' => 'listpertanyaanumum'
 ]);
 
 $router->addGet('/listpertanyaansayaview/{id}',[
@@ -61,6 +75,27 @@ $router->addGet('/pertanyaansayadet/{id}',[
     'controller' => 'tanya',
     'action' => 'pertanyaansayadet'
 ]);
+
+$router->addGet('/pertanyaanumumdet/{id}',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'tanya',
+    'action' => 'pertanyaanumumdet'
+]);
+
+$router->addGet('/jawab/{id}',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'tanya',
+    'action' => 'jawab'
+]); 
+
+$router->addGet('/urungkanjawab/{id}',[
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'tanya',
+    'action' => 'urungkanjawab'
+]);  
 
 $router->addGet('/editpertanyaan/{id}',[
     'namespace' => $namespace,

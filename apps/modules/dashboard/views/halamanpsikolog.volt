@@ -66,7 +66,8 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li><a href="#">Pertanyaan</a></li>
+                                    	<li class="active"><a href="/">Beranda</a></li>
+                                        <li><a href="pertanyaanumum">Pertanyaan</a></li>
                                         <li><a href="#">Artikel Saya</a></li>
                                         {% if (session.get('psikolog')['username']) %}
                                         <li><a href="#">Hai, {{ session.get('psikolog')['username'] }}!</a>
@@ -107,23 +108,44 @@
 	<!-- End Button -->
 
 	<!-- Start Align Area -->
-	<div style="margin-top: 200px;" class="whole-wrap">
-		<div class="container box_1170">
-			
-			
+	<main>
 
-	
-				<div class="row">
-					<!-- DAFTAR -->
-					<div class="col-lg-6 col-md-6">
-						<h3 class="mb-30">HALAMAN PSIKOLOG! BERHASIL LOGIN!</h3>
-						
-					</div>
+        <!-- Slider Area Start-->
+        <div class="slider-area ">
+            <div class="slider-active">
+                <div class="single-slider slider-height sky-blue d-flex align-items-center">
+                    <div class="container">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-6 col-md-9 ">
+                                <div class="hero__caption">
+                                  <span data-animation="fadeInUp" data-delay=".4s">selamat datang di</span>
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">You Matter</h1>
+                                    <p data-animation="fadeInUp" data-delay=".8s">Jawab pertanyaan pasien dengan menulis ulasan pada artikel!</p>
+                                    <!-- Slider btn -->
+                                   <div class="slider-btns">
+                                        <!-- Hero-btn -->
+                                        <a data-animation="fadeInLeft" data-delay="1.0s" href="tulisartikel" class="btn radius-btn">Tulis Artikel Sekarang</a>
+                                        <!-- Video Btn -->
+                                        <!-- <a data-animation="fadeInRight" data-delay="1.0s" class="popup-video video-btn ani-btn" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><i class="fas fa-play"></i></a> -->
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight" data-delay="1s">
+                                    <img style="height: 80%;" src="../assets/img/hero/illus.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
 
-					
-				</div>
-			</div>
-		</div>
+        
+        
+      </div>
+
+        </main>
 	</div>
 	<!-- End Align Area -->
 	<div style="margin-top: 200px;">

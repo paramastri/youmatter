@@ -104,15 +104,13 @@
                                     <ul id="navigation">    
                                         <li><a href="/">Beranda</a></li>
                                         <li><a href="artikel">Artikel</a></li>
-                                        <li class="active"><a href="pertanyaansaya">Pertanyaan</a></li>
-                                        {% if (session.get('pasien')['username']) %}
-                                        <li><a href="#">Hai, {{ session.get('pasien')['username'] }}!</a>
+                                        <li><a href="#">Masuk</a>
                                             <ul class="submenu">
-                                                {% endif %}
-                                                <li><a href="logoutpasien">Logout</a></li>
+                                                <li><a href="pasien">Pasien</a></li>
+                                                <li><a href="psikolog">Psikolog</a></li>
+                                                <li><a href="loginadmin">Admin</a></li>
                                             </ul>
                                         </li>
-
                                     </ul>
                                 </nav>
                             </div>
@@ -148,35 +146,9 @@
 		<div class="container box_1170">
 					<!-- DAFTAR -->
 					<div>
-						<h3 class="mb-30">Daftar Pertanyaan Saya</h3>
-						<a style="margin-bottom: 20px;" href="tanya" class="genric-btn default">Tanya Lagi</a>
-						<div id="example-table-theme"></div>
+						<h3 class="mb-30">Error 404 halaman tidak ditemukan.</h3>
 					</div>
 
-					<script>
-					    // tabelnya
-					        var table = new Tabulator("#example-table-theme", {
-					            // height: "345px",
-					            width: "300px",
-					            pagination:"local",
-					            paginationSize:10,
-					            layout:"fitColumns",
-					            placeholder: "Tidak Ada Data",
-					            columns: [
-					                {title: "No", field: "no", formatter: "rownum", width: 10},
-					                {title: "Kode Pertanyaan", field: "id", headerFilter:"input"},
-					                {title: "Topik", field: "topik", headerFilter:"input"},
-					                {title: "Status Pertanyaan", field: "status", headerFilter:"input"},
-					                {
-					                    title: "Detail", field: "link", formatter: "link", formatterParams: {					labelField: "name",
-					                        label: "Detail",
-					                        urlPrefix: "{{ url('pertanyaansayadet/') }}",
-					                    }
-					                },
-					            ],
-					        });
-					        table.setData("{{ url('listpertanyaansaya') }}");
-					</script>
 					
 				</div>
 			</div>

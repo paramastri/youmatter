@@ -80,6 +80,15 @@ class TanyaController extends Controller
 
     }
 
+    public function pertanyaanumumAction()
+    {   
+        $id = $this->session->get('psikolog');
+        if ($id == NULL) {
+            (new Response())->redirect('psikolog')->send();          
+        }
+        $this->view->pick('pertanyaanumum');
+    }
+
     public function pertanyaansayadetAction($id)
     {   
         $ids = $this->session->get('pasien');
@@ -88,6 +97,62 @@ class TanyaController extends Controller
         }
         $this->view->pick('pertanyaansayadet');
         $this->view->data = Pertanyaan::findFirst("id='$id'");
+    }
+
+    public function pertanyaanumumdetAction($id)
+    {   
+        $ids = $this->session->get('psikolog');
+        if ($ids == NULL) {
+        (new Response())->redirect('psikolog')->send();          
+        }
+        $this->view->pick('pertanyaanumumdet');
+        $this->view->data = Pertanyaan::findFirst("id='$id'");
+    }
+
+    public function listpertanyaanumumAction()
+    {
+        $pertanyaans = Pertanyaan::find();
+        $data = array();
+
+        foreach ($pertanyaans as $pertanyaan) {
+
+            if($pertanyaan->status == 1)
+            {
+                $status_sekarang = "Terjawab";
+            }
+            else
+            {
+                $status_sekarang = "Belum Terjawab";
+            }
+                
+            $data[] = array(
+                'id' => $pertanyaan->id,
+                'topik' => $pertanyaan->topik,
+                'pertanyaan' => $pertanyaan->pertanyaan,
+                'status' => $status_sekarang,
+                'link' => $pertanyaan->id,
+            );
+
+        }
+        
+        $content = json_encode($data);
+        return $this->response->setContent($content);
+    }
+
+    public function jawabAction($id)
+    {
+        $user = Pertanyaan::findFirst("id='$id'");
+        $user->status = 1;
+        $user->save();
+        return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+    }
+
+    public function urungkanjawabAction($id)
+    {
+        $user = Pertanyaan::findFirst("id='$id'");
+        $user->status = 0;
+        $user->save();
+        return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
     }
 
     public function editpertanyaanAction($id)
@@ -106,14 +171,14 @@ class TanyaController extends Controller
     public function storeeditpertanyaanAction()
     {
         $id_pertanyaan = $this->request->getPost('id');
-        $pertanyaan = Pertanyaan::findFirst("id='$id_pertanyaan'");
+        $pertanyaans = Pertanyaan::findFirst("id='$id_pertanyaan'");
         $topik = $this->request->getPost('topik');
-        $tanya = $this->request->getPost('pertanyaan');
-        $pertanyaan->topik = $topik;
-        $pertanyaan->tanya = $tanya;
+        $pertanyaan = $this->request->getPost('pertanyaan');
+        $pertanyaans->topik = $topik;
+        $pertanyaans->pertanyaan = $pertanyaan;
         // echo $pertanyaan->topik;
         // die();
-        $pertanyaan->save();
+        $pertanyaans->save();
         $this->response->redirect('pertanyaansayadet'.'/'.$id_pertanyaan);
 
         
