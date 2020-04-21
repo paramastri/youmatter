@@ -60,13 +60,13 @@
                                     <ul id="navigation">    
                                         <li><a href="/">Beranda</a></li>
                                         <li class="active"><a href="artikel">Artikel</a></li>
-                                        <li><a href="#">Masuk</a>
+                                        <!-- <li><a href="#">Masuk</a>
                                             <ul class="submenu">
                                                 <li><a href="pasien">Pasien</a></li>
                                                 <li><a href="psikolog">Psikolog</a></li>
-                                                <li><a href="admin">Admin</a></li>
+                                                <li><a href="loginadmin">Admin</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -86,13 +86,7 @@
 <!--     <div class="services-area"> -->
         <div style="margin-top: 15%;" class="container">
             <!-- Section-tittle -->
-            <div class="row d-flex">
-                <div class="col-lg-8">
-                    <div class="section-tittle mb-80">
-                        <h2 >Artikel</h2>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!-- Slider Area End-->
@@ -103,61 +97,29 @@
             <div class="row">
               <!--   <div class="col-lg-8 mb-5 mb-lg-0"> -->
                     <div class="blog_left_sidebar">
+                       {% for artikel in artikels %}
                         <article style="width: 50%;" class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="../assets/img/blog/single_blog_5.png" alt="">
+                            <div class="blog_item_img"><!-- 
+                                <img class="card-img rounded-0" src="../assets/img/blog/single_blog_5.png" alt=""> -->
                                 <a style="pointer-events: none;" class="blog_item_date">
-                                    <h3>15</h3>
+                                    <h3>{{artikel.kode}}</h3>
                                     <!-- <p>Jan</p> -->
                                 </a>
                             </div>
 
                             <div class="blog_details">
                                 <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Google inks pact for new 35-storey office</h2>
+                                    <h2>{{artikel.judul}}</h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
+                                <p>{{artikel.isi}}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i> Ditulis oleh: {{artikel.penulis}}</a></li>
                                 </ul>
                             </div>
                         </article>
+                        {% endfor %}
 
-
-                        <article style="width: 50%;" class="blog_item">
-                            
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Detail Akun Psikolog</h2>
-                                </a>
-
-                                <table>
-                                  <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>:</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Username</td>
-                                    <td>:</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Email</td>
-                                    <td>:</td>
-                                  </tr>
-                                  <tr>
-                                    <td>No. Telepon</td>
-                                    <td>:</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Nomor Registrasi STRPK</td>
-                                    <td>:</td>
-                                  </tr>
-                                </table>
-                            </div>
-                        </article>
+                        
 
             
 

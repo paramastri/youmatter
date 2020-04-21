@@ -103,8 +103,13 @@
                                 <nav>
                                     <ul id="navigation">    
                                     	<li><a href="/">Beranda</a></li>
-                                        <li class="active"><a href="pertanyaanumum" >Pertanyaan</a></li>
-                                        <li><a href="#">Artikel Saya</a></li>
+                                        <li class="active"><a href="pertanyaanumum">Pertanyaan</a></li>
+                                        <li><a href="#">Artikel</a>
+                                        	<ul class="submenu">
+                                                <li><a href="artikel">Semua Artikel</a></li>
+                                                <li><a href="artikelsaya">Artikel Saya</a></li>
+                                            </ul>
+                                        </li>
                                         {% if (session.get('psikolog')['username']) %}
                                         <li><a href="#">Hai, {{ session.get('psikolog')['username'] }}!</a>
                                             <ul class="submenu">

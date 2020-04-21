@@ -18,6 +18,13 @@ $router->addGet('/tulisartikel', [
     'action' => 'tulisartikel'
 ]);
 
+$router->addPost('/storeartikel', [
+    'namespace' => $namespace,
+    'module' => 'tanyajawab',
+    'controller' => 'artikel',
+    'action' => 'storeartikel'
+]);
+
 // TANYA
 
 $router->addGet('/tanya', [

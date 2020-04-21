@@ -68,7 +68,12 @@
                                     <ul id="navigation">    
                                     	<li class="active"><a href="/">Beranda</a></li>
                                         <li><a href="pertanyaanumum">Pertanyaan</a></li>
-                                        <li><a href="#">Artikel Saya</a></li>
+                                        <li><a href="#">Artikel</a>
+                                        	<ul class="submenu">
+                                                <li><a href="artikel">Semua Artikel</a></li>
+                                                <li><a href="artikelsaya">Artikel Saya</a></li>
+                                            </ul>
+                                        </li>
                                         {% if (session.get('psikolog')['username']) %}
                                         <li><a href="#">Hai, {{ session.get('psikolog')['username'] }}!</a>
                                             <ul class="submenu">
@@ -132,7 +137,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight" data-delay="1s">
-                                    <img style="height: 80%;" src="../assets/img/hero/illus.png" alt="">
+                                    <img style="height: 80%;" src="../assets/img/hero/illus2.png" alt="">
                                 </div>
                             </div>
                         </div>
