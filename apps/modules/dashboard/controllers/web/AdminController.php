@@ -9,6 +9,7 @@ use Phalcon\Init\Dashboard\Models\Psikolog;
 use Phalcon\Http\Request;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Http\Response;
+use Phalcon\Flash\Session;
 
 class AdminController extends Controller
 {
@@ -45,6 +46,14 @@ class AdminController extends Controller
         if ($_isAdmin) {
             $this->response->redirect('halamanadmin');
         }
+        $_isPsi= $this->session->get('psikolog');
+        if ($_isPsi) {
+            $this->response->redirect('halamanpsikolog');
+        }
+        $_isPas= $this->session->get('pasien');
+        if ($_isPas) {
+            $this->response->redirect('halamanpasien');
+        }
         $this->view->pick('loginadmin');
     }
 
@@ -67,6 +76,7 @@ class AdminController extends Controller
                 }
                 else{
                     echo "Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.";
+                    // $this->flashSession->error("Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.");
                     // $this->response->redirect('loginadmin');
                 }
             }

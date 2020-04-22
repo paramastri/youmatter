@@ -104,13 +104,13 @@
                                     <ul id="navigation">    
                                         <li><a href="/">Beranda</a></li>
                                         <li><a href="artikel">Artikel</a></li>
-                                        <li><a href="#">Masuk</a>
+                                        <!-- <li><a href="#">Masuk</a>
                                             <ul class="submenu">
                                                 <li><a href="pasien">Pasien</a></li>
                                                 <li><a href="psikolog">Psikolog</a></li>
                                                 <li><a href="loginadmin">Admin</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -127,36 +127,49 @@
     </header>
 	<!-- Slider Area Start-->
 
-<div>
-<!-- 	<div class="services-area sky-blue">
-		
-	</div> -->
-	<!-- Slider Area End-->
+<main>
 
-	<!-- Start Sample Area -->
-	
-	<!-- End Sample Area -->
+        <!-- Slider Area Start-->
+        <div class="slider-area ">
+            <div class="slider-active">
+                <div class="single-slider slider-height sky-blue d-flex align-items-center">
+                    <div class="container">
+                        <div class="row d-flex align-items-center">
+                        	<div class="col-lg-6">
+                                <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInLeft" data-delay="1s">
+                                    <img style="height: 80%;" src="../assets/img/hero/illus3.png" alt="">
 
-	<!-- Start Button -->
-	
-	<!-- End Button -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-9 ">
+                                <div class="hero__caption">
+                                  <!-- <span data-animation="fadeInUp" data-delay=".4s">selamat datang di</span> -->
+                                    <h3 style="margin-left: 90px;" data-animation="fadeInUp" data-delay=".6s">Halaman tidak ditemukan</h3>
+                                    <!-- <p data-animation="fadeInUp" data-delay=".8s">Halaman tidak ditemukan</p> -->
+                                    <!-- Slider btn -->
+                                   <div class="slider-btns">
+                                        <!-- Hero-btn --><!-- 
+                                        <a data-animation="fadeInLeft" data-delay="1.0s" href="tulisartikel" class="btn radius-btn">Tulis Artikel Sekarang</a> -->
+                                        <!-- Video Btn -->
+                                        <!-- <a data-animation="fadeInRight" data-delay="1.0s" class="popup-video video-btn ani-btn" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><i class="fas fa-play"></i></a> -->
+                                   </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
 
-	<!-- Start Align Area -->
-	<div style="margin-top: 200px;" class="whole-wrap">
-		<div class="container box_1170">
-					<!-- DAFTAR -->
-					<div>
-						<h3 class="mb-30">Error 404 halaman tidak ditemukan.</h3>
-					</div>
+        
+        
+      </div>
 
-					
-				</div>
-			</div>
-		</div>
-	</div>
+        </main>
 	<!-- End Align Area -->
-	<div style="margin-top: 200px;">
-	<footer style="background-color: #f4feff;">
+	<!-- <div style="margin-top: 200px;"> -->
+	<footer style="background-color: #fff;">
 		<!-- Footer Start-->
 	   <div class="footer-main">
 		 <div class="footer-area footer-padding2">
@@ -170,7 +183,7 @@
                              </div>
 							  <div class="footer-tittle">
 								  <div class="footer-pera">
-									  <p class="info1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+									  <p class="info1">Just a reminder in case your mind is playing tricks on you today: You matter. You're important. You're loved. And your presence on this earth makes a difference whether you see it or not.</p>
 								 </div>
 							  </div>
 						  </div>
@@ -180,11 +193,9 @@
 							 <div class="footer-tittle">
 								 <h4>Quick Links</h4>
 								 <ul>
-									 <li><a href="#">About</a></li>
-									 <li><a href="#">Features</a></li>
-									 <li><a href="#">Pricing</a></li>
-									 <li><a href="#">Download</a></li>
-									 <li><a href="#">Reviews</a></li>
+									 <li><a href="artikel">Artikel</a></li>
+									 <li><a href="pasien">Daftar Pasien</a></li>
+									 <li><a href="psikolog">Daftar Psikolog</a></li>
 								 </ul>
 							 </div>
 						 </div>
@@ -206,21 +217,10 @@
 					 <div class="col-lg-3 col-md-6 col-sm-8">
 						 <div class="single-footer-caption mb-50">
 							 <div class="footer-tittle">
-								 <h4>Newsletter</h4>
+								 <h4>Kontak</h4>
 								 <div class="footer-pera footer-pera2">
-								  <p>Heaven fruitful doesn't over lesser in days. Appear </p>
-							  </div>
-							  <!-- Form -->
-							  <div class="footer-form">
-								  <div id="mc_embed_signup">
-									  <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-										  <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
-										  <div class="form-icon">
-											  <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="../assets/img/shape/form_icon.png" alt=""></button>
-										  </div>
-										  <div class="mt-10 info"></div>
-									  </form>
-								  </div>
+								  <p>Surabaya, Indonesia</p>
+								  <p>+62 81572 9372</p>
 							  </div>
 							 </div>
 						 </div>

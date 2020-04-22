@@ -5,6 +5,8 @@ namespace Phalcon\Init\Dashboard\Controllers\Web;
 use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Init\Dashboard\Models\Pasien;
+use Phalcon\Init\Dashboard\Models\Psikolog;
+use Phalcon\Init\Dashboard\Models\Admin;
 use Phalcon\Http\Request;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Http\Response;
@@ -17,6 +19,14 @@ class PasienController extends Controller
         $_isPasien= $this->session->get('pasien');
         if ($_isPasien) {
             $this->response->redirect('halamanpasien');
+        }
+        $_isPsi= $this->session->get('psikolog');
+        if ($_isPsi) {
+            $this->response->redirect('halamanpsikolog');
+        }
+        $_isAd= $this->session->get('admin');
+        if ($_isAd) {
+            $this->response->redirect('halamanadmin');
         }
         $this->view->pick('daftarpasien');
     }

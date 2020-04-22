@@ -120,7 +120,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-xl-8">
                             <div class="section-tittle text-center">
-                                <h2>What Our Customers<br> Have to Say</h2>
+                                <h2>Kata Mereka</h2>
                             </div>
                         </div>
                     </div>
@@ -132,8 +132,8 @@
                                         <img src="../assets/img/shape/man1.png" alt="">
                                     </div>
                                     <div class="what-cap">
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                        <p>Utenim ad minim veniam quisnostrud exercitation ullamcolabor nisiut aliquip ex ea commodo consequat duis aute irure dolor in represse.</p>
+                                        <h4><a href="#">Bagi Saya</a></h4>
+                                        <p>Saya jadi mengenal siapa kawan dan siapa lawan yang sesungguhnya saat saya depresi. Karena saat saya berada di titik terendah hidup saya, di situlah saya tahu siapa yang benar-benar ada untuk saya.</p>
                                     </div>
                                 </div>
                             
@@ -142,8 +142,8 @@
                                         <img src="../assets/img/shape/man2.png" alt="">
                                     </div>
                                     <div class="what-cap">
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                        <p>Utenim ad minim veniam quisnostrud exercitation ullamcolabor nisiut aliquip ex ea commodo consequat duis aute irure dolor in represse.</p>
+                                        <h4><a href="#">Gara-gara You Matter</a></h4>
+                                        <p>Yang saya dapatkan adalah perasaan haru dan bahagia karena I survived! Karena bagi saya, depresi adalah ujian dari Tuhan yang menginginkan saya untuk menjadi orang yang lebih baik lagi. Saya jauh menjadi lebih empatik dan bisa merasakan perasaan orang lain setelah saya depresi.</p>
                                     </div>
                                 </div>
                             
@@ -152,18 +152,18 @@
                                         <img src="../assets/img/shape/man3.png" alt="">
                                     </div>
                                     <div class="what-cap">
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                        <p>Utenim ad minim veniam quisnostrud exercitation ullamcolabor nisiut aliquip ex ea commodo consequat duis aute irure dolor in represse.</p>
+                                        <h4><a href="#">Yuk, pakai You Matter!</a></h4>
+                                        <p>Saya pun ingin menunjukan ke teman-teman bahwa pergi ke psikolog bukanlah hal yang memalukan. Kalian tetap manusia yang baik dan hebat walaupun kalian pergi ke psikolog, sama seperti ketika kalian pergi ke dokter.</p>
                                     </div>
                                 </div>
                             
                                 <div class="single-customer mb-100">
                                     <div class="what-img">
-                                        <img src="../assets/img/shape/man2.png" alt="">
+                                        <img src="../assets/img/shape/man4.png" alt="">
                                     </div>
                                     <div class="what-cap">
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                        <p>Utenim ad minim veniam quisnostrud exercitation ullamcolabor nisiut aliquip ex ea commodo consequat duis aute irure dolor in represse.</p>
+                                        <h4><a href="#">Terima kasih, You Matter!</a></h4>
+                                        <p>Saya tidak malu untuk menceritakan bahwa saya pernah depresi atau memiliki gangguan jiwa. Bagi saya, saat ini adalah era authenticity dan vulnerability. Era di mana kita bisa terbuka mengenai diri kita yang sebenarnya dan menerima kekurangan kita. </p>
                                     </div>
                                 </div>
                             
@@ -180,89 +180,71 @@
       </div>
 
         </main>
-   <footer>
-
-       <!-- Footer Start-->
-      <div class="footer-main">
-        <div class="footer-area footer-padding">
-            <div class="container">
-                <div class="row  justify-content-between">
-                    <div class="col-lg-3 col-md-4 col-sm-8">
-                         <div class="single-footer-caption mb-30">
-                              <!-- logo -->
-                             <div class="footer-logo">
+  <footer style="background-color: #f4feff;">
+        <!-- Footer Start-->
+       <div class="footer-main">
+         <div class="footer-area footer-padding2">
+             <div class="container">
+                 <div class="row  justify-content-between">
+                     <div class="col-lg-3 col-md-4 col-sm-8">
+                          <div class="single-footer-caption mb-30">
+                               <!-- logo -->
+                              <div class="footer-logo">
                                  <a href="/"><img style="width:30%;" src="../assets/img/logo/logogo.png" alt=""></a>
                              </div>
+                              <div class="footer-tittle">
+                                  <div class="footer-pera">
+                                      <p class="info1">Just a reminder in case your mind is playing tricks on you today: You matter. You're important. You're loved. And your presence on this earth makes a difference whether you see it or not.</p>
+                                 </div>
+                              </div>
+                          </div>
+                     </div>
+                     <div class="col-lg-2 col-md-4 col-sm-5">
+                         <div class="single-footer-caption mb-50">
                              <div class="footer-tittle">
-                                 <div class="footer-pera">
-                                     <p class="info1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
-                                </div>
+                                 <h4>Quick Links</h4>
+                                 <ul>
+                                     <li><a href="artikel">Artikel</a></li>
+                                     <li><a href="pasien">Daftar Pasien</a></li>
+                                     <li><a href="psikolog">Daftar Psikolog</a></li>
+                                 </ul>
                              </div>
                          </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Pricing</a></li>
-                                    <li><a href="#">Download</a></li>
-                                    <li><a href="#">Reviews</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Support</h4>
-                                <ul>
-                                    <li><a href="#">Report a bug</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Sitemap</a></li>
-                                    <li><a href="#">FAQs</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-8">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Newsletter</h4>
-                                <div class="footer-pera footer-pera2">
-                                 <p>Heaven fruitful doesn't over lesser in days. Appear </p>
+                     </div>
+                     <div class="col-lg-2 col-md-4 col-sm-7">
+                         <div class="single-footer-caption mb-50">
+                             <div class="footer-tittle">
+                                 <h4>Support</h4>
+                                 <ul>
+                                     <li><a href="#">Report a bug</a></li>
+                                     <li><a href="#">Privacy Policy</a></li>
+                                     <li><a href="#">Terms & Conditions</a></li>
+                                     <li><a href="#">Sitemap</a></li>
+                                     <li><a href="#">FAQs</a></li>
+                                 </ul>
                              </div>
-                             <!-- Form -->
-                             <div class="footer-form">
-                                 <div id="mc_embed_signup">
-                                     <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                         <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
-                                         <div class="form-icon">
-                                             <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="../assets/img/shape/form_icon.png" alt=""></button>
-                                         </div>
-                                         <div class="mt-10 info"></div>
-                                     </form>
-                                 </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 col-md-6 col-sm-8">
+                         <div class="single-footer-caption mb-50">
+                             <div class="footer-tittle">
+                                 <h4>Kontak</h4>
+                                 <div class="footer-pera footer-pera2">
+                                  <p>Surabaya, Indonesia</p>
+                                  <p>+62 81572 9372</p>
+                              </div>
                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Copy-Right -->
-                <div class="row align-items-center">
-                    <div class="col-xl-12 ">
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-       <!-- Footer End-->
-
-   </footer>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- Copy-Right -->
+                
+             </div>
+         </div>
+       </div>
+        <!-- Footer End-->
+ 
+    </footer>
    
     <!-- JS here -->
     

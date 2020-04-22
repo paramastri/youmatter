@@ -18,6 +18,14 @@ class PsikologController extends Controller
         if ($_isPsikolog) {
             $this->response->redirect('halamanpsikolog');
         }
+        $_isAd= $this->session->get('admin');
+        if ($_isAd) {
+            $this->response->redirect('halamanadmin');
+        }
+        $_isPas= $this->session->get('pasien');
+        if ($_isPas) {
+            $this->response->redirect('halamanpasien');
+        }
         $this->view->pick('daftarpsikolog');
     }
 

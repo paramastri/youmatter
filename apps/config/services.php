@@ -32,6 +32,25 @@ $di->setShared('session',function () {
     }
 );
 
+$di->set(
+    'flashSession',
+    function () {
+        
+        $session = new Manager();
+        $files = new Stream(
+            [
+                'savePath' => '/mnt/e/git/youmatter/session',
+            ]
+        );
+        // $session->setHandler($files);
+
+        $escaper = new Escaper();
+        $flash   = new FlashSession($escaper, $session);
+
+        return $flash;
+    }
+);
+
 
 $di['config'] = function() use ($config) {
 	return $config;
@@ -95,58 +114,43 @@ $di->set(
     true
 );
 
-$di->set(
-    'flash',
-    function () {
-        $flash = new FlashDirect(
-            [
-                'error'   => 'alert alert-danger',
-                'success' => 'alert alert-success',
-                'notice'  => 'alert alert-info',
-                'warning' => 'alert alert-warning',
-            ]
-        );
+// $di->set(
+//     'flash',
+//     function () {
+//         $flash = new FlashDirect(
+//             [
+//                 'error'   => 'alert alert-danger',
+//                 'success' => 'alert alert-success',
+//                 'notice'  => 'alert alert-info',
+//                 'warning' => 'alert alert-warning',
+//             ]
+//         );
 
-        return $flash;
-    }
-);
-
-$di->set(
-    'flashSession',
-    function () {
-        $flash = new FlashSession(
-            [
-                'error'   => 'alert alert-danger',
-                'success' => 'alert alert-success',
-                'notice'  => 'alert alert-info',
-                'warning' => 'alert alert-warning',
-            ]
-        );
-
-        $flash->setAutoescape(false);
-        
-        return $flash;
-    }
-);
-
-
-// $di->setShared('db', function(){
-//     $config = $this->getConfig();
-
-//     $class = '\Phalcon\Db\Adapter\Pdo\\' . $config->database->adapter;
-//     $params = [
-//         'host' => $config->database->host,
-//         'username' => $config->database->username,
-//         'password' => $config->database->password,
-//         'dbname' => $config->database->dbname,
-//         'port' => $config->database->port,
-//         'charset' => $config->database->charset
-//     ];
-//     if ($config->database->adapter == 'Postgresql' || $config->database->adapter == 'Sqlite'){
-//         unset($params['charset']);
+//         return $flash;
 //     }
-//     return new $class($params);
-// });
+// );
+
+
+
+// $di->set(
+//     'flashSession',
+//     function () {
+//         $flash = new FlashSession(
+//             [
+//                 'error'   => 'alert alert-danger',
+//                 'success' => 'alert alert-success',
+//                 'notice'  => 'alert alert-info',
+//                 'warning' => 'alert alert-warning',
+//             ]
+//         );
+
+//         $flash->setAutoescape(false);
+        
+//         return $flash;
+//     }
+// );
+
+
 
 $di['db'] = function () use ($config) {
 
