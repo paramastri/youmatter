@@ -32,24 +32,24 @@ $di->setShared('session',function () {
     }
 );
 
-$di->set(
-    'flashSession',
-    function () {
+// $di->set(
+//     'flashSession',
+//     function () {
         
-        $session = new Manager();
-        $files = new Stream(
-            [
-                'savePath' => '/mnt/e/git/youmatter/session',
-            ]
-        );
-        // $session->setHandler($files);
+//         $session = new Manager();
+//         $files = new Stream(
+//             [
+//                 'savePath' => '/mnt/e/git/youmatter/session',
+//             ]
+//         );
+//         // $session->setHandler($files);
 
-        $escaper = new Escaper();
-        $flash   = new FlashSession($escaper, $session);
+//         $escaper = new Escaper();
+//         $flash   = new FlashSession($escaper, $session);
 
-        return $flash;
-    }
-);
+//         return $flash;
+//     }
+// );
 
 
 $di['config'] = function() use ($config) {
@@ -114,21 +114,24 @@ $di->set(
     true
 );
 
-// $di->set(
-//     'flash',
-//     function () {
-//         $flash = new FlashDirect(
-//             [
-//                 'error'   => 'alert alert-danger',
-//                 'success' => 'alert alert-success',
-//                 'notice'  => 'alert alert-info',
-//                 'warning' => 'alert alert-warning',
-//             ]
-//         );
+$di->set(
+    'flash',
+    function () {
+        $escaper = new Escaper();
+        $flash = new FlashDirect($escaper);
+        $flash->setImplicitFlush(false);
+        $flash->setCssClasses(
+            [
+                'error'   => 'alert alert-danger',
+                'success' => 'alert alert-success',
+                'notice'  => 'alert alert-info',
+                'warning' => 'alert alert-warning',
+            ]
+        );
 
-//         return $flash;
-//     }
-// );
+        return $flash;
+    }
+);
 
 
 

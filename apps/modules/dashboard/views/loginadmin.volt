@@ -120,7 +120,9 @@
 					<div style="margin-left:10%;" class="col-lg-4 col-md-4 mt-sm-30">
 						
 						<h3 class="mb-30">Masuk Sebagai Admin</h3>
-						<!-- <p><?php echo $this->flashSession->output() ?></p> -->
+						<div style="color: red; font-weight: bold;">
+							<p><?php echo $this->flashSession->output() ?></p>
+						</div>
 						<form action="loginadmin" method = "post">
 							<div class="mt-10">
 								<input type="text" name="username" placeholder="Username"

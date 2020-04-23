@@ -42,9 +42,9 @@ class PsikologController extends Controller
         $psikolog->status = 0;
         $user = Psikolog::findFirst("username = '$psikolog->username'");
         if ($user) { 
-            // $this->flashSession->error("Gagal register. Username telah digunakan.");
-            // return $this->response->redirect('daftarpsikolog');
-            echo "username sudah digunakan.";
+            $this->flashSession->error("Gagal daftar. Username psikolog telah digunakan.");
+            return $this->response->redirect('psikolog');
+            // echo "username sudah digunakan.";
         }
         else
         {
@@ -55,35 +55,6 @@ class PsikologController extends Controller
         }
         
     }
-
-    // public function storeloginAction()
-    // {
-    //     $username = $this->request->getPost('username');
-    //     $pass = $this->request->getPost('password');
-    //     $user = Psikolog::findFirst("username = '$username'");
-    //         if ($user){
-    //             if($this->security->checkHash($pass, $user->password)){
-    //                 $this->session->set(
-    //                     'psikolog',
-    //                     [
-    //                         'id' => $user->id,
-    //                         'username' => $user->username,
-    //                     ]
-    //                 );
-    //                 // echo "Masuk bos mantap";
-    //                 (new Response())->redirect('halamanpsikolog')->send();
-    //             }
-    //             else{
-    //                 echo "Gagal masuk sebagai psikolog. Silakan cek kembali username dan password anda.";
-    //                 // $this->response->redirect('loginadmin');
-    //             }
-    //         }
-    //         else{
-    //             // $this->flashSession->error("Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.");
-    //             echo "Akun tidak ditemukan.";
-    //                 // $this->response->redirect('loginadmin');
-    //         }
-    // }
 
     public function storeloginAction()
     {
@@ -104,17 +75,22 @@ class PsikologController extends Controller
 		                (new Response())->redirect('halamanpsikolog')->send();
 		            }
 		            else{
-		                echo "Gagal masuk sebagai psikolog. Silakan cek kembali username dan password anda.";
+		                // echo "Gagal masuk sebagai psikolog. Silakan cek kembali username dan password anda.";
+                        $this->flashSession->error("Gagal masuk sebagai psikolog. Silakan cek kembali username dan password anda.");
+                        return $this->response->redirect('psikolog');
 		                // $this->response->redirect('user/login');
 		            }
 		        }
 		        else {
-		        	echo "Lom diverif, bilang admin";
+                    $this->flashSession->error("Akun psikolog belum diverifikasi. Silakan hubungi admin.");
+                        return $this->response->redirect('psikolog');
+		        	// echo "Lom diverif, bilang admin";
 		            // $this->response->redirect('user/login');
 		        }
 	    	}
 	        else{
-	            echo "Akun tidak ditemukan";
+	            $this->flashSession->error("Akun psikolog tidak ditemukan.");
+                        return $this->response->redirect('psikolog');
 	            // $this->response->redirect('user/login');
 	        }
     }    

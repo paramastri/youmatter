@@ -110,12 +110,15 @@
 		<div class="container box_1170">
 			
 			
-
-	
+<div style="color: red; font-weight: bold; text-align: center; margin-bottom: 7%;">
+	<p><?php echo $this->flashSession->output() ?></p>
+</div>
 				<div class="row">
 					<!-- DAFTAR -->
+
 					<div class="col-lg-6 col-md-6">
 						<h3 class="mb-30">Daftar Pasien</h3>
+							
 						<form action="daftarpasien" method = "post">
 							<div class="mt-10">
 								<input type="text" name="username" placeholder="Username"
@@ -149,7 +152,8 @@
 
 					<div style="margin-left:10%;" class="col-lg-3 col-md-4 mt-sm-30">
 						
-						<h3 class="mb-30">Masuk</h3>
+						<h3 class="mb-30">Masuk Pasien</h3>
+							<!-- <p><?php echo $this->flashSession->output() ?></p> -->
 						<form action="loginpasien" method = "post">
 							<div class="mt-10">
 								<input type="text" name="username" placeholder="Username"

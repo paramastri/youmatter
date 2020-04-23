@@ -126,9 +126,13 @@
                                   
                                 </table>
                             </div>
+                            {% if (data.status == 1) %}
+                            <a style="margin-top: 40px;" href="{{ url('pertanyaansaya') }}" class="genric-btn default">Kembali</a>
+                            {% else %}
                             <a style="margin-top: 40px;" href="{{ url('pertanyaansaya') }}" class="genric-btn default">Kembali</a>
                             <a style="margin-top: 40px;" href="../editpertanyaan/{{data.id}}" class="genric-btn primary">Ubah</a>
                             <a style="margin-top: 40px;" href="../hapuspertanyaan/{{data.id}}" class="genric-btn danger">Hapus</a>
+                            {% endif %}
                             
                         </article>
 

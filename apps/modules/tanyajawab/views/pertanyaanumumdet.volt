@@ -139,7 +139,6 @@
                             {% else %}
                             <a style="margin-top: 20px;" href="{{ url('pertanyaanumum') }}" class="genric-btn default">Kembali</a>
                             <a style="margin-top: 20px;" href="../jawab/{{data.id}}" class="genric-btn success">Jawab*</a>
-
                             {% endif %}
                             <p style="margin-top: 20px;">*Setelah menekan jawab, anda harus langsung menulis artikelnya. Urungkan apabila belum siap menulis.</p>
                             

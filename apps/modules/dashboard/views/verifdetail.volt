@@ -98,6 +98,9 @@
                         <article style="width: 50%;" class="blog_item">
                             <div class="blog_details">
                                     <h2>Detail Akun Psikolog</h2>
+                                      <div style="color: red; font-weight: bold;">
+              <p><?php echo $this->flashSession->output() ?></p>
+            </div>
                                 </a>
 
                                 <table>

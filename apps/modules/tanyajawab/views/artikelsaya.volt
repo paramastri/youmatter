@@ -154,6 +154,9 @@
 					<!-- DAFTAR -->
 					<div>
 						<h3 class="mb-30">Daftar Artikel Saya</h3>
+							<div style="color: red; font-weight: bold;">
+              <p><?php echo $this->flashSession->output() ?></p>
+            </div>
 						<a style="margin-bottom: 20px;" href="tulisartikel" class="genric-btn default">Tulis Lagi</a>
 						<div id="example-table-theme"></div>
 					</div>

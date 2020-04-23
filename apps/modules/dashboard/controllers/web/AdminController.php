@@ -10,6 +10,7 @@ use Phalcon\Http\Request;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Http\Response;
 use Phalcon\Flash\Session;
+use Phalcon\Mvc\Model\Query;
 
 class AdminController extends Controller
 {
@@ -75,15 +76,15 @@ class AdminController extends Controller
                     (new Response())->redirect('halamanadmin')->send();
                 }
                 else{
-                    echo "Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.";
-                    // $this->flashSession->error("Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.");
-                    // $this->response->redirect('loginadmin');
+                    // echo "Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.";
+                    $this->flashSession->error("Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.");
+                    $this->response->redirect('loginadmin');
                 }
             }
             else{
-                // $this->flashSession->error("Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.");
-                echo "Akun tidak ditemukan.";
-                    // $this->response->redirect('loginadmin');
+                $this->flashSession->error("Akun admin tidak ditemukan.");
+                // echo "Akun tidak ditemukan.";
+                    $this->response->redirect('loginadmin');
             }
     }
 
@@ -142,25 +143,60 @@ class AdminController extends Controller
     {   
         $ids = $this->session->get('admin');
         if ($ids == NULL) {
-        (new Response())->redirect('loginadmin')->send();          
+            (new Response())->redirect('loginadmin')->send();          
         }
-        $this->view->pick('verifdetail');
-        $this->view->data = Psikolog::findFirst("id='$id'");
+
+        $_isID = Psikolog::findFirst("id='$id'");
+        if($_isID)
+        {
+            $this->view->pick('verifdetail');
+            $this->view->data = Psikolog::findFirst("id='$id'");
+        }
+        else{
+            $this->flashSession->error("Akun psikolog tidak ditemukan.");
+            $this->response->redirect('halamanadmin');
+        }
+        
     }
     
     public function verifpsikologAction($id)
     {
-        $user = Psikolog::findFirst("id='$id'");
-        $user->status = 1;
-        $user->save();
-        return $this->response->redirect('verifdetail' . '/' . $id);
+        $_isID = Psikolog::findFirst("id='$id'");
+        if($_isID)
+        {
+            $user = Psikolog::findFirst("id='$id'");
+            $user->status = 1;
+            $user->save();
+            return $this->response->redirect('verifdetail' . '/' . $id);
+        }
+        else{
+            $this->flashSession->error("Akun psikolog tidak ditemukan.");
+            $this->response->redirect('halamanadmin');
+        }
+        // $user = Psikolog::findFirst("id='$id'");
+        // $user->status = 1;
+        // $user->save();
+        // return $this->response->redirect('verifdetail' . '/' . $id);
     }
 
     public function unverifpsikologAction($id)
     {
-        $user = Psikolog::findFirst("id='$id'");
-        $user->status = 0;
-        $user->save();
-        return $this->response->redirect('verifdetail' . '/' . $id);
+        $_isID = Psikolog::findFirst("id='$id'");
+        if($_isID)
+        {
+            $user = Psikolog::findFirst("id='$id'");
+            $user->status = 0;
+            $user->save();
+            return $this->response->redirect('verifdetail' . '/' . $id);
+        }
+        else{
+            $this->flashSession->error("Akun psikolog tidak ditemukan.");
+            $this->response->redirect('halamanadmin');
+        }
+        // $user = Psikolog::findFirst("id='$id'");
+        // $user->status = 0;
+        // $user->save();
+        // return $this->response->redirect('verifdetail' . '/' . $id);
+       
     }
 }

@@ -40,9 +40,9 @@ class PasienController extends Controller
         $pasien->password = $this->security->hash($password);
         $user = Pasien::findFirst("username = '$pasien->username'");
         if ($user) { 
-            // $this->flashSession->error("Gagal register. Username telah digunakan.");
-            // return $this->response->redirect('daftarpasien');
-            echo "username sudah digunakan.";
+            $this->flashSession->error("Gagal mendaftar. Username pasien telah digunakan.");
+            return $this->response->redirect('pasien');
+            // echo "username sudah digunakan.";
         }
         else
         {
@@ -72,13 +72,15 @@ class PasienController extends Controller
                     (new Response())->redirect('halamanpasien')->send();
                 }
                 else{
-                    echo "Gagal masuk sebagai pasien. Silakan cek kembali username dan password anda.";
-                    // $this->response->redirect('loginadmin');
+                    // echo "Gagal masuk sebagai pasien. Silakan cek kembali username dan password anda.";
+                    $this->flashSession->error("Gagal masuk sebagai pasien. Silakan cek kembali username dan password anda.");
+                    $this->response->redirect('pasien');
                 }
             }
             else{
-                // $this->flashSession->error("Gagal masuk sebagai admin. Silakan cek kembali username dan password anda.");
-                echo "Akun tidak ditemukan.";
+                $this->flashSession->error("Gagal masuk sebagai pasien. Akun tidak ditemukan.");
+                $this->response->redirect('pasien');
+                // echo "Akun tidak ditemukan.";
                     // $this->response->redirect('loginadmin');
             }
     }

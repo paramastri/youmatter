@@ -6,6 +6,7 @@ use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Init\Dashboard\Models\Pasien;
 use Phalcon\Init\Tanyajawab\Models\Pertanyaan;
+use Phalcon\Init\Tanyajawab\Models\Artikel;
 use Phalcon\Http\Request;
 use Phalcon\Http\Response;
 use Phalcon\Events\Manager as EventsManager;
@@ -96,8 +97,17 @@ class TanyaController extends Controller
         if ($ids == NULL) {
         (new Response())->redirect('pasien')->send();          
         }
-        $this->view->pick('pertanyaansayadet');
-        $this->view->data = Pertanyaan::findFirst("id='$id'");
+
+        $_isID = Pertanyaan::findFirst("id='$id'");
+        if($_isID)
+        {
+            $this->view->pick('pertanyaansayadet');
+            $this->view->data = Pertanyaan::findFirst("id='$id'");
+        }
+        else{
+            $this->flashSession->error("Pertanyaan tidak ditemukan.");
+            $this->response->redirect('pertanyaansaya');
+        }
     }
 
     public function pertanyaanumumdetAction($id)
@@ -106,8 +116,18 @@ class TanyaController extends Controller
         if ($ids == NULL) {
         (new Response())->redirect('psikolog')->send();          
         }
-        $this->view->pick('pertanyaanumumdet');
-        $this->view->data = Pertanyaan::findFirst("id='$id'");
+
+        $_isID = Pertanyaan::findFirst("id='$id'");
+        if($_isID)
+        {
+            $this->view->pick('pertanyaanumumdet');
+            $this->view->data = Pertanyaan::findFirst("id='$id'");        }
+        else{
+            $this->flashSession->error("Pertanyaan tidak ditemukan.");
+            $this->response->redirect('pertanyaanumum');
+        }
+
+        
     }
 
     public function listpertanyaanumumAction()
@@ -142,18 +162,37 @@ class TanyaController extends Controller
 
     public function jawabAction($id)
     {
-        $user = Pertanyaan::findFirst("id='$id'");
-        $user->status = 1;
-        $user->save();
-        return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+
+        $_isID = Pertanyaan::findFirst("id='$id'");
+        if($_isID)
+        {
+            $user = Pertanyaan::findFirst("id='$id'");
+            $user->status = 1;
+            $user->save();
+            return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+        }
+        else{
+            $this->flashSession->error("Pertanyaan tidak ditemukan.");
+            $this->response->redirect('pertanyaanumum');
+        }
     }
 
     public function urungkanjawabAction($id)
     {
-        $user = Pertanyaan::findFirst("id='$id'");
-        $user->status = 0;
-        $user->save();
-        return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+
+        $_isID = Pertanyaan::findFirst("id='$id'");
+        if($_isID)
+        {
+            $user = Pertanyaan::findFirst("id='$id'");
+            $user->status = 0;
+            $user->save();
+            return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+        }
+        else{
+            $this->flashSession->error("Pertanyaan tidak ditemukan.");
+            $this->response->redirect('pertanyaanumum');
+        }
+
     }
 
     public function editpertanyaanAction($id)
@@ -164,9 +203,17 @@ class TanyaController extends Controller
             $this->response->redirect('pasien');
         }
 
-        $data = Pertanyaan::findFirst("id='$id'");
-        $this->view->pick('editpertanyaan');
-        $this->view->data = $data;
+        $_isID = Pertanyaan::findFirst("id='$id'");
+        if($_isID && $_isID->status == 0)
+        {
+            $data = Pertanyaan::findFirst("id='$id'");
+            $this->view->pick('editpertanyaan');
+            $this->view->data = $data;
+        }
+        else{
+            $this->flashSession->error("Pertanyaan tidak ditemukan.");
+            $this->response->redirect('pertanyaansaya');
+        }
     }
 
     public function storeeditpertanyaanAction()
@@ -190,9 +237,17 @@ class TanyaController extends Controller
     }
 
     public function hapuspertanyaanAction($id){
-        $this->db->query("delete from pertanyaan where id='".$id."'");
-        $this->response->redirect('pertanyaansaya');
 
+        $_isID = Pertanyaan::findFirst("id='$id'");
+        if($_isID && $_isID->status == 0)
+        {
+            $this->db->query("delete from pertanyaan where id='".$id."'");
+            $this->response->redirect('pertanyaansaya');
+        }
+        else{
+            $this->flashSession->error("Pertanyaan tidak ditemukan.");
+            $this->response->redirect('pertanyaansaya');
+        }
     }
 
 }

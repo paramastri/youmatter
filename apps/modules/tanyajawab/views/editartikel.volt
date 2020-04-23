@@ -122,7 +122,10 @@
 				<div class="row">
 					<!-- TANYA -->
 					<div class="col-lg-8 col-md-8">
-						<h3 class="mb-30">Ubah Pertanyaan</h3>
+						<h3 class="mb-30">Ubah Artikel</h3>
+              <div style="color: red; font-weight: bold;">
+              <p><?php echo $this->flashSession->output() ?></p>
+            </div>
 						<form action="{{ url("storeeditartikel") }}" method="post">
 							<div class="mt-10">
 								<input type="text" name="penulis" placeholder="Penulis" value="{{data.penulis}}"

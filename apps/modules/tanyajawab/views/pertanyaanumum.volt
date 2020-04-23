@@ -154,6 +154,9 @@
 					<!-- DAFTAR -->
 					<div>
 						<h3 class="mb-30">Daftar Pertanyaan Pasien</h3>
+             <div style="color: red; font-weight: bold;">
+              <p><?php echo $this->flashSession->output() ?></p>
+            </div>
 						<h6 class="mb-30">Pilih pertanyaan yang belum terjawab.</h6>
 						<div id="example-table-theme"></div>
 					</div>

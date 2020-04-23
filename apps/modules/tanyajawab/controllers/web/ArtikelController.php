@@ -81,8 +81,18 @@ class ArtikelController extends Controller
         if ($ids == NULL) {
         (new Response())->redirect('psikolog')->send();          
         }
-        $this->view->pick('artikelsayadet');
-        $this->view->data = Artikel::findFirst("id='$id'");
+
+        $_isID = Artikel::findFirst("id='$id'");
+        if($_isID)
+        {
+            $this->view->pick('artikelsayadet');
+            $this->view->data = Artikel::findFirst("id='$id'");
+        }
+        else{
+            $this->flashSession->error("Artikel tidak ditemukan.");
+            $this->response->redirect('artikelsaya');
+        }
+
     }
 
     public function editartikelAction($id)
@@ -93,9 +103,18 @@ class ArtikelController extends Controller
             $this->response->redirect('psikolog');
         }
 
-        $data = Artikel::findFirst("id='$id'");
-        $this->view->pick('editartikel');
-        $this->view->data = $data;
+        $_isID = Artikel::findFirst("id='$id'");
+        if($_isID)
+        {
+            $data = Artikel::findFirst("id='$id'");
+            $this->view->pick('editartikel');
+            $this->view->data = $data;
+        }
+        else{
+            $this->flashSession->error("Artikel tidak ditemukan.");
+            $this->response->redirect('artikelsaya');
+        }
+
     }
 
     public function storeeditartikelAction()
@@ -115,13 +134,23 @@ class ArtikelController extends Controller
     }
 
     public function hapusartikelAction($id){
-    	$artikel = Artikel::findFirst("id='$id'");
-    	$pertanyaan = Pertanyaan::findFirst("id='$artikel->kode'");
-        $pertanyaan->status = 0;
-        $pertanyaan->save();
-        $this->db->query("delete from artikel where id='".$id."'");
-        // $this->db->query("update pertanyaan set status='0' where id='".$artikel->kode."'");
-        $this->response->redirect('artikelsaya');
+
+        $_isID = Artikel::findFirst("id='$id'");
+        if($_isID)
+        {
+            $artikel = Artikel::findFirst("id='$id'");
+            $pertanyaan = Pertanyaan::findFirst("id='$artikel->kode'");
+            $pertanyaan->status = 0;
+            $pertanyaan->save();
+            $this->db->query("delete from artikel where id='".$id."'");
+            $this->response->redirect('artikelsaya');
+        }
+        else{
+            $this->flashSession->error("Artikel tidak ditemukan.");
+            $this->response->redirect('artikelsaya');
+        }
+
+    	
     }
 
 }
