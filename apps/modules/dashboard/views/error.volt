@@ -103,7 +103,7 @@
                                 <nav>
                                     <ul id="navigation">    
                                         <li><a href="/">Beranda</a></li>
-                                        <li><a href="artikel">Artikel</a></li>
+                                        <li><a href="{{url('artikel')}}">Artikel</a></li>
                                         <!-- <li><a href="#">Masuk</a>
                                             <ul class="submenu">
                                                 <li><a href="pasien">Pasien</a></li>
