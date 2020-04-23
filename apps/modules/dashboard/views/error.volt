@@ -193,9 +193,9 @@
 							 <div class="footer-tittle">
 								 <h4>Quick Links</h4>
 								 <ul>
-									 <li><a href="artikel">Artikel</a></li>
-									 <li><a href="pasien">Daftar Pasien</a></li>
-									 <li><a href="psikolog">Daftar Psikolog</a></li>
+									 <li><a href="{{url('artikel')}}">Artikel</a></li>
+									 <li><a href="{{url('pasien')}}">Daftar Pasien</a></li>
+									 <li><a href="{{url('psikolog')}}">Daftar Psikolog</a></li>
 								 </ul>
 							 </div>
 						 </div>
