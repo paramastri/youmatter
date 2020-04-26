@@ -193,12 +193,19 @@ class TanyaController extends Controller
     {
 
         $_isID = Pertanyaan::findFirst("id='$id'");
+        $terjawab = Artikel::findFirst("kode='$id'");
         if($_isID)
         {
-            $user = Pertanyaan::findFirst("id='$id'");
-            $user->status = 0;
-            $user->save();
-            return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+            if($terjawab){
+                $this->flashSession->error("Gagal urungkan jawab. Pertanyaan sudah diulas pada artikel.");
+                $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+            }
+            else{
+                $user = Pertanyaan::findFirst("id='$id'");
+                $user->status = 0;
+                $user->save();
+                return $this->response->redirect('pertanyaanumumdet' . '/' . $id);
+            }
         }
         else{
             $this->flashSession->error("Pertanyaan tidak ditemukan.");

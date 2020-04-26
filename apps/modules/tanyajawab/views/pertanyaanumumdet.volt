@@ -107,7 +107,9 @@
                         <article style="width: 50%;" class="blog_item">
                             <div class="blog_details">
                                     <h2>Detail Pertanyaan</h2>
-                                </a>
+                                <div style="color: red; font-weight: bold;">
+                                  <p><?php echo $this->flashSession->output() ?></p>
+                                </div>
 
                                 <table>
                                   <tr>
