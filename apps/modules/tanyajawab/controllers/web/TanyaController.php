@@ -112,6 +112,7 @@ class TanyaController extends Controller
             else{
                 $this->view->pick('pertanyaansayadet');
                 $this->view->data = Pertanyaan::findFirst("id='$id'");
+                $this->view->artikel = Artikel::findFirst("kode='$id'");
             }
         }
         else{

@@ -34,7 +34,7 @@ class ArtikelController extends Controller
     {
         $artikel = new Artikel();
         $artikel->id_psikolog = $this->session->get('psikolog')['id'];
-        $artikel->penulis = $this->request->getPost('penulis');
+        $artikel->penulis = $this->session->get('psikolog')['nama'];
         $artikel->kode = $this->request->getPost('kode');
         $artikel->judul = $this->request->getPost('judul');
         $artikel->isi = $this->request->getPost('isi');
@@ -143,7 +143,7 @@ class ArtikelController extends Controller
     {
         $id = $this->request->getPost('id');
         $artikel = Artikel::findFirst("id='$id'");
-        $penulis = $this->request->getPost('penulis');
+        $penulis = $this->session->get('psikolog')['nama'];
         $kode = $this->request->getPost('kode');
         $judul = $this->request->getPost('judul');
         $isi = $this->request->getPost('isi');

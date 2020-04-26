@@ -128,10 +128,10 @@
             </div>
 						<form action="{{ url("storeeditartikel") }}" method="post">
 							<div class="mt-10">
-								<input type="text" name="penulis" placeholder="Penulis" value="{{data.penulis}}"
+								<!-- <input type="text" name="penulis" placeholder="Penulis" value="{{data.penulis}}"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Penulis'" required
 									class="single-input">
-							</div>
+							</div> -->
 							<div class="mt-10">
 								<input type="text" name="kode" placeholder="Kode Pertanyaan" value="{{data.kode}}"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kode Pertanyaan'" required

@@ -69,6 +69,7 @@ class PsikologController extends Controller
 		                    [
 		                        'id' => $user->id,
 		                        'username' => $user->username,
+                                'nama' => $user->nama,
 		                    ]
 		                );
 

@@ -132,11 +132,11 @@
                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kode Pertanyaan'" required
                   class="single-input">
               </div>
-							<div class="mt-10">
+							<!-- <div class="mt-10">
 								<input type="text" name="penulis" placeholder="Penulis"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Penulis'" required
 									class="single-input">
-							</div>
+							</div> -->
 							
 							<div class="mt-10">
 								<input type="text" name="judul" placeholder="Judul Artikel"
