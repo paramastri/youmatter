@@ -123,17 +123,21 @@
 					<!-- TULIS ARTIKEL -->
 					<div class="col-lg-8 col-md-8">
 						<h3 class="mb-30">Tulis Artikel</h3>
+            <div style="color: red; font-weight: bold;">
+              <p><?php echo $this->flashSession->output() ?></p>
+            </div>
 						<form action="storeartikel" method="post">
+              <div class="mt-10">
+                <input type="text" name="kode" placeholder="Kode Pertanyaan"
+                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kode Pertanyaan'" required
+                  class="single-input">
+              </div>
 							<div class="mt-10">
 								<input type="text" name="penulis" placeholder="Penulis"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Penulis'" required
 									class="single-input">
 							</div>
-							<div class="mt-10">
-								<input type="text" name="kode" placeholder="Kode Pertanyaan"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kode Pertanyaan'" required
-									class="single-input">
-							</div>
+							
 							<div class="mt-10">
 								<input type="text" name="judul" placeholder="Judul Artikel"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Judul Artikel'" required

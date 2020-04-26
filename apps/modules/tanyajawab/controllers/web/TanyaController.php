@@ -95,7 +95,7 @@ class TanyaController extends Controller
     {   
         $ids = $this->session->get('pasien');
         if ($ids == NULL) {
-        (new Response())->redirect('pasien')->send();          
+            (new Response())->redirect('pasien')->send();          
         }
 
         $_isID = Pertanyaan::findFirst("id='$id'");

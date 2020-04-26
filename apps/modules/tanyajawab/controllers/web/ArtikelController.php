@@ -38,8 +38,15 @@ class ArtikelController extends Controller
         $artikel->kode = $this->request->getPost('kode');
         $artikel->judul = $this->request->getPost('judul');
         $artikel->isi = $this->request->getPost('isi');
-        $artikel->save();
-        return $this->response->redirect('artikelsaya');
+        $user = Artikel::findFirst("kode = '$artikel->kode'");
+        if ($user) { 
+            $this->flashSession->error("Pertanyaan dengan kode tersebut sudah ditulis artikelnya. Silakan jawab pertanyaan lain.");
+            return $this->response->redirect('tulisartikel');
+        }
+        else{
+            $artikel->save();
+            return $this->response->redirect('artikelsaya');
+        }
     }
 
     public function artikelsayaAction()
