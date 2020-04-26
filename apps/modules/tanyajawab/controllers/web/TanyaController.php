@@ -94,20 +94,31 @@ class TanyaController extends Controller
     public function pertanyaansayadetAction($id)
     {   
         $ids = $this->session->get('pasien');
+        $idpas = $this->session->get('pasien')['id'];
         if ($ids == NULL) {
             (new Response())->redirect('pasien')->send();          
         }
 
-        $_isID = Pertanyaan::findFirst("id='$id'");
-        if($_isID)
+        $data = Pertanyaan::findFirst("id='$id'");
+        // $pertanyaans = Pertanyaan::find([
+        //     "id='$id'",
+        //     "id_pasien='$idpas'"
+        //     ]);
+        if($data)
         {
-            $this->view->pick('pertanyaansayadet');
-            $this->view->data = Pertanyaan::findFirst("id='$id'");
+            if ($idpas != $data->id_pasien) {
+                $this->response->redirect('pertanyaansaya');
+            }
+            else{
+                $this->view->pick('pertanyaansayadet');
+                $this->view->data = Pertanyaan::findFirst("id='$id'");
+            }
         }
         else{
             $this->flashSession->error("Pertanyaan tidak ditemukan.");
             $this->response->redirect('pertanyaansaya');
         }
+
     }
 
     public function pertanyaanumumdetAction($id)
@@ -198,6 +209,7 @@ class TanyaController extends Controller
     public function editpertanyaanAction($id)
     {
         $_isPasien = $this->session->get('pasien');
+        $idpas = $this->session->get('pasien')['id'];
         if (!$_isPasien) 
         {
             $this->response->redirect('pasien');
@@ -206,9 +218,13 @@ class TanyaController extends Controller
         $_isID = Pertanyaan::findFirst("id='$id'");
         if($_isID && $_isID->status == 0)
         {
+            if ($idpas != $_isID->id_pasien) {
+                $this->response->redirect('pertanyaansaya');
+            }
+            else{
             $data = Pertanyaan::findFirst("id='$id'");
             $this->view->pick('editpertanyaan');
-            $this->view->data = $data;
+            $this->view->data = $data;}
         }
         else{
             $this->flashSession->error("Pertanyaan tidak ditemukan.");
@@ -239,8 +255,12 @@ class TanyaController extends Controller
     public function hapuspertanyaanAction($id){
 
         $_isID = Pertanyaan::findFirst("id='$id'");
+        $idpas = $this->session->get('pasien')['id'];
         if($_isID && $_isID->status == 0)
         {
+            if ($idpas != $_isID->id_pasien) {
+                $this->response->redirect('pertanyaansaya');
+            }
             $this->db->query("delete from pertanyaan where id='".$id."'");
             $this->response->redirect('pertanyaansaya');
         }

@@ -39,8 +39,14 @@ class ArtikelController extends Controller
         $artikel->judul = $this->request->getPost('judul');
         $artikel->isi = $this->request->getPost('isi');
         $user = Artikel::findFirst("kode = '$artikel->kode'");
-        if ($user) { 
-            $this->flashSession->error("Pertanyaan dengan kode tersebut sudah ditulis artikelnya. Silakan jawab pertanyaan lain.");
+        $pertanyaan = Pertanyaan::findFirst("id='$artikel->kode'");
+        if($pertanyaan)
+        {
+            if ($user) {
+                $this->flashSession->error("Pertanyaan dengan kode tersebut sudah ditulis artikelnya. Silakan jawab pertanyaan lain.");
+                return $this->response->redirect('tulisartikel');
+            }
+            $this->flashSession->error("Pertanyaan dengan kode tersebut tidak ditemukan.");
             return $this->response->redirect('tulisartikel');
         }
         else{
@@ -85,6 +91,7 @@ class ArtikelController extends Controller
     public function artikelsayadetAction($id)
     {   
         $ids = $this->session->get('psikolog');
+        $idpsi = $this->session->get('psikolog')['id'];
         if ($ids == NULL) {
         (new Response())->redirect('psikolog')->send();          
         }
@@ -92,6 +99,9 @@ class ArtikelController extends Controller
         $_isID = Artikel::findFirst("id='$id'");
         if($_isID)
         {
+            if ($idpsi != $_isID->id_psikolog) {
+                $this->response->redirect('artikelsaya');
+            }
             $this->view->pick('artikelsayadet');
             $this->view->data = Artikel::findFirst("id='$id'");
         }
@@ -105,6 +115,7 @@ class ArtikelController extends Controller
     public function editartikelAction($id)
     {
         $_isPsikolog = $this->session->get('psikolog');
+        $idpsi = $this->session->get('psikolog')['id'];
         if (!$_isPsikolog) 
         {
             $this->response->redirect('psikolog');
@@ -113,6 +124,9 @@ class ArtikelController extends Controller
         $_isID = Artikel::findFirst("id='$id'");
         if($_isID)
         {
+            if ($idpsi != $_isID->id_psikolog) {
+                $this->response->redirect('artikelsaya');
+            }
             $data = Artikel::findFirst("id='$id'");
             $this->view->pick('editartikel');
             $this->view->data = $data;
@@ -143,14 +157,20 @@ class ArtikelController extends Controller
     public function hapusartikelAction($id){
 
         $_isID = Artikel::findFirst("id='$id'");
+        $idpsi = $this->session->get('psikolog')['id'];
         if($_isID)
         {
-            $artikel = Artikel::findFirst("id='$id'");
-            $pertanyaan = Pertanyaan::findFirst("id='$artikel->kode'");
-            $pertanyaan->status = 0;
-            $pertanyaan->save();
-            $this->db->query("delete from artikel where id='".$id."'");
-            $this->response->redirect('artikelsaya');
+            if ($idpsi != $_isID->id_psikolog) {
+                $this->response->redirect('artikelsaya');
+            }
+            else{
+                $artikel = Artikel::findFirst("id='$id'");
+                $pertanyaan = Pertanyaan::findFirst("id='$artikel->kode'");
+                $pertanyaan->status = 0;
+                $pertanyaan->save();
+                $this->db->query("delete from artikel where id='".$id."'");
+                $this->response->redirect('artikelsaya');
+            }
         }
         else{
             $this->flashSession->error("Artikel tidak ditemukan.");
