@@ -45,13 +45,14 @@ class ArtikelController extends Controller
             if ($user) {
                 $this->flashSession->error("Pertanyaan dengan kode tersebut sudah ditulis artikelnya. Silakan jawab pertanyaan lain.");
                 return $this->response->redirect('tulisartikel');
+            }            else{
+                $artikel->save();
+                return $this->response->redirect('artikelsaya');
             }
-            $this->flashSession->error("Pertanyaan dengan kode tersebut tidak ditemukan.");
-            return $this->response->redirect('tulisartikel');
         }
         else{
-            $artikel->save();
-            return $this->response->redirect('artikelsaya');
+            $this->flashSession->error("Pertanyaan dengan kode tersebut tidak ditemukan.");
+            return $this->response->redirect('tulisartikel');
         }
     }
 
